@@ -1,0 +1,169 @@
+/*Jose edit*/
+.main-edit {
+  max-width: 1400px;
+  padding: var(--spacing-36) var(--spacing-128) var(--spacing-36) var(--spacing-128);
+}
+
+.h1-edit {
+  font-size: var(--font-jumbo);
+  margin-bottom: var(--spacing-36);
+}
+.p-carga {
+  font-size: var(--font-medium);
+}
+.edit-tipo {
+  display: flex;
+  font-size: var(--font-medium);
+  margin-top: var(--spacing-36);
+  margin-bottom: var(--spacing-36);
+}
+
+.edit-valu {
+  margin-left: var(--spacing-8);
+  margin-right: var(--spacing-36);
+  font-size: var(--font-xsmal);
+  border-radius: 5px;
+}
+
+.edit-product {
+  margin-right: var(--spacing-36);
+  font-size: var(--font-xsmal);
+  border: none;
+  border-bottom: 2px solid #ff3333;
+  outline: none;
+}
+
+.edit-text {
+  font-size: var(--font-large);
+  border-radius: 5px;
+}
+
+.edit-sps {
+  font-size: var(--font-xsmal);
+  margin-right: var(--spacing-36);
+  border: none;
+  border-bottom: 2px solid #ff3333;
+  outline: none;
+}
+
+.edit-dc {
+  margin-left: var(--spacing-8);
+  margin-right: var(--spacing-36);
+  font-size: var(--font-xsmal);
+  border-radius: 5px;
+}
+
+.edit-file{
+  margin-left: var(--spacing-8);
+  margin-right: var(--spacing-36);
+  font-size: var(--font-xsmal);
+  border-radius: 5px;
+
+}
+
+.descuento {
+  margin-right: var(--spacing-36);
+  border: none;
+  border-bottom: 2px solid #ff3333;
+  outline: none;
+}
+
+.container-card {
+  display: flex;
+  text-align: center;
+}
+
+.img-edit {
+  width: 151px;
+  height: 151px;
+}
+
+.p-carga {
+  border-top: 2px solid #ff3333;
+  margin-right: var(--spacing-12);
+  margin-left: var(--spacing-12);
+  }
+
+  
+.button-mod { 
+  margin-top: var(--spacing-36);
+}
+
+/*jose edit*/
+
+/*---------------*/
+/*  Responsive  */
+/*--------------*/
+
+/* Phone and Tablet */
+
+@media screen and (max-width:1000px) {
+
+  .main-edit{
+    padding: 0;
+    margin: 30px 5px 30px;
+  }
+
+  .edit-text{
+    width: 90%;
+  }
+
+  .edit-tipo{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .descuento{
+    width: 160px;
+    margin-bottom: 30px;
+  }
+
+  .edit-sps{
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-8);
+    width: 260px;
+  }
+
+  .edit-product{
+    width: 260px;
+  }
+  
+  .edit-dc{
+    margin-top: 10px;
+    width: 260px;
+  }
+
+  .h1-edit{
+    margin: 0;
+  }
+
+  .edit-valu{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 260px;
+  }
+
+  .img-edit{
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media screen and (min-width:450px) and (max-width:1000px){
+  .main-edit{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text-edit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+  }
+
+}

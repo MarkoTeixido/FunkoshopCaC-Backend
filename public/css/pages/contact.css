@@ -1,0 +1,209 @@
+/* Contact style */
+
+.contact-wrapper{
+    width: 100%;
+    display: flex;
+    gap: var(--spacing-20);
+    padding: var(--spacing-28) var(--spacing-128);
+}
+
+.contact-left-side, .contact-right-side{
+    align-self: center;
+}
+
+.contact-left-side{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-36);
+    position: relative;
+}
+
+.contact-left-side::before{
+    content: '';
+    position: absolute;
+    height: 70%;
+    width: .2rem;
+    right: -0.1px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary-solid);
+}
+
+.contact-left-side .contact-info-container{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
+    text-align: center;
+}
+
+.contact-info-subcontainer{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-info-container .contact-info-title{
+    font-family: var(--secondary-font);
+    font-size: var(--font-large);
+    font-weight: 700;
+}
+
+.contact-info-container p{
+    font-family: var(--primary-font);
+    font-size: var(--font-xsmall);
+    font-weight: 400;
+}
+
+.contact-right-side{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-20);
+    padding: 0 0 0 var(--spacing-8);
+}
+
+.contact-inputs{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 0.25fr 0.25fr .7fr;
+    gap: var(--spacing-20);
+}
+
+.contact-inputs input, .contact-inputs textarea{
+    font-family: var(--primary-font);
+    font-size: var(--font-medium);
+    padding: var(--spacing-8);
+}
+
+.contact-inputs textarea::placeholder, .contact-inputs input::placeholder{
+    font-family: var(--primary-font);
+    color: rgba(149, 159, 168, 0.722);
+}
+
+.contact-input-name{
+    grid-column: 1 / 1;
+}
+
+.contact-input-email{
+    grid-column: 2 / 4;
+}
+
+.contact-input-about{
+    grid-column: 1 / 4;
+}
+
+.contact-input-message{
+    grid-column: 1 / 4;
+}
+
+.contact-button{
+    width: 15%;
+    text-decoration: none;
+    background-color:var(--primary-solid);
+    color: white;
+    border: none;
+    padding: var(--spacing-12) var(--spacing-20);
+    font-size: var(--font-medium);
+    font-family: var(--primary-font);
+    cursor: pointer;
+}
+
+.contact-button:hover{
+    background-color: rgba(230, 0, 0, 0.9);
+    transition: background .2s ease-in-out;
+}
+
+/* Contact style end */
+
+/*---------------*/
+/*  Responsive  */
+/*--------------*/
+
+/* Phone and Tablet */
+
+@media screen and (max-width:1200px) {
+    .contact-wrapper{
+        flex-direction: column-reverse;
+    }
+
+    .contact-left-side, .contact-right-side{
+        width: 100%;
+    }
+
+    .contact-left-side{
+        padding: var(--spacing-36) 0 0;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .contact-left-side::before{
+        display: none;
+    }
+
+    .contact-right-side{
+        position: relative;
+    }
+
+    .contact-right-side::before{
+        content: '';
+        position: absolute;
+        height: .2rem;
+        width: 80%;
+        left: 0;
+        bottom: -2em;
+        transform: translateX(13%);
+        background: var(--dark-background-solid);
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .contact-wrapper{
+        padding: var(--spacing-28) var(--spacing-20);
+    }
+
+    .contact-left-side{
+        flex-wrap: wrap;
+    }
+
+    .contact-left-side:nth-child(2){
+        order: 999;
+    }
+
+    .contact-button{
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width:650px) {
+    .contact-right-side .contact-title{
+        text-align: center;
+    }
+
+    .contact-inputs{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr 0.2fr 0.2fr 0.4fr; 
+        gap: var(--spacing-20);
+    }
+
+    .contact-input-name{
+        grid-column: 1 / 1;
+    }
+    
+    .contact-input-email{
+        grid-column: 1 / 1;
+        grid-row: 2;
+    }
+    
+    .contact-input-about{
+        grid-column: 1 / 1;
+    }
+    
+    .contact-input-message{
+        grid-column: 1 / 1;
+    }
+}
+
+/* Phone and Tablet end */

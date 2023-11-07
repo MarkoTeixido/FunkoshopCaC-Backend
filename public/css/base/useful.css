@@ -1,0 +1,17 @@
+/* Website content width */
+.container{
+    max-width: 1400px;
+    margin: 0 auto;
+}
+/* Website content width */
+
+/* Animation for Buttons */
+@keyframes fade{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+/* Animation for Buttons */

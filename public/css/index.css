@@ -1,0 +1,46 @@
+/* Resources */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;900&family=Raleway:wght@100;300;400;500;600;700;900&display=swap");
+
+/* Resources end */
+
+/* Base */
+
+@import url(./base/normalize.css);
+@import url(./base/variables.css);
+@import url(./base/useful.css);
+
+/* Base end */
+
+/* Components - General */
+
+@import url(./components/general/header.css);
+@import url(./components/general/header-admin.css);
+@import url(./components/general/footer.css);
+
+
+/* Components - General end */
+
+/* Components - Partials */
+
+@import url(./components/partials/slider.css);
+@import url(./components/partials/card.css);
+@import url(./components/partials/buttons.css);
+@import url(./components/partials/titles.css);
+
+/* Components - Partials end*/
+
+/* Pages */
+
+@import url(./pages/home.css);
+@import url(./pages/shop.css);
+@import url(./pages/item.css);
+@import url(./pages/carrito.css);
+@import url(./pages/contact.css);
+@import url(./pages/admin.css);
+@import url(./pages/create.css);
+@import url(./pages/edit.css);
+@import url(./pages/login.css);
+@import url(./pages/register.css);
+
+/* Pages end*/

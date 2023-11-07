@@ -1,0 +1,240 @@
+/* All articles style */
+.article-products{
+    padding: var(--spacing-24) 0;
+    display: grid;
+}
+
+.products{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    padding: 0 var(--spacing-128);
+}
+
+.products-content{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-24);
+    align-items: start;
+}
+
+.products-price{
+    font-family: var(--secondary-font);
+    font-size: 38px;
+    font-weight: 400;
+}
+
+.products-buttons-adder{
+    display: flex;
+    gap: var(--spacing-16);
+}
+
+.products-buttons-wrapper-adder button{
+    background-color: #4F4F4F;
+    color: #ffffff;
+}
+
+.products-buttons-wrapper-adder button:hover{
+    background-color: #4f4f4fcb;
+    transition: background .2s ease-in-out;
+}
+
+.products-text{
+    font-family: var(--secondary-font);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29.05px;
+    color: #333333;
+    /* border-bottom: 3px solid var(--primary-solid); */
+    padding-bottom: var(--spacing-20);
+}
+
+.products-collection-title {
+    font-size: 16px;
+}
+.add-link{
+    display:block;
+    /* float: right; */
+    font-size: 18px;
+    font-weight: 400;
+    text-align: left;
+    width: 181px;
+    height: 37.91px;
+    color: #ffffff;
+    background-color: red;
+    padding: 7px ;
+    /* border-radius: 50px; */
+}
+
+.add-link:hover{
+    background-color: rgba(230, 0, 0, 0.9);
+    color: #ffffff;
+    transition: background .3s ease-in-out;
+}
+
+input[type=button], input[type=submit] {
+    /* display:block; */
+    border: none;
+    /* float: right; */
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    width: 181px;
+    height: 37.91px;
+    color: #ffffff;
+    background-color: red;
+    padding: 7px ;
+    /* border-radius: 50px; */
+}
+
+input[type=button]:hover, input[type=submit]:hover{
+    background-color: rgba(230, 0, 0, 0.9);
+    color: #ffffff;
+    transition: background .3s ease-in-out;
+}
+.addcarrito {
+    display: flex;
+    align-items: center;
+}
+
+.quantity {
+    width: 105.47px;
+    height: 35.24px;
+    /* line-height: 1.65; */
+    float: left;
+    display: block;
+    padding: 10px;
+    margin: 5px;
+    padding-left: 20px;
+    /* border: 1px solid #a20202; */
+}
+
+/* .quantity input:focus {
+    outline: 0;
+}
+
+.quantity-nav {
+    float: left;
+    position: relative;
+    height: 42px;
+} */
+/* All articles style end */
+
+
+
+
+
+/*---------------*/
+/*  Responsive  */
+/*--------------*/
+
+/* Phone and Tablet */
+
+@media screen and (max-width:1000px) {
+
+    /* All articles style */
+
+    .products{
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(1, 1fr);
+        align-items: center;
+        padding: 0 var(--spacing-36);
+    }
+
+    .products-collection-title {
+        font-size: 12px;
+    }
+
+    .products:first-child .products-image{
+        order: -1;
+        margin-left: -5rem;
+    }
+
+    .products:last-child .products-image{
+        order: -1;
+    }
+
+    .products-content{
+        gap: var(--spacing-8);
+        align-items: center;
+    }
+
+    .products-title{
+        font-weight: 500;
+        text-align: center;
+    }
+    
+    .products-text{
+        font-family: var(--secondary-font);
+        font-size: var(--font-large);
+        font-weight: 300;
+        /* border-bottom: 3px solid var(--secondary-solid); */
+        padding-bottom: var(--spacing-20);
+        text-align: center;
+    }
+
+    .centrar {
+        width: 65%;
+        margin: auto;
+        display: block;
+    }
+    
+    
+    input[type=button], input[type=submit] {
+        display:block;
+        border: none;
+        /* float: right; */
+        font-size: 18px;
+        font-weight: 400;
+        text-align: center;
+        width: 181px;
+        height: 37.91px;
+        color: #ffffff;
+        background-color: red;
+        padding: 7px ;
+        /* border-radius: 50px; */
+    }
+
+    .addcarrito {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* All articles style end*/
+
+    
+}
+
+@media screen and (max-width:400px) {
+    .products-title {
+        font-size: 36px;
+    }
+    .products-collection-title {
+        font-size: 10px;
+    }
+    .products-text {
+        font-size: 20px;
+    }
+    .products-price {
+        font-size: 3rem;
+    }
+    .slider-title {
+        font-size: 32px;
+    }
+    .hero{
+        padding: 8rem;
+    }
+
+    .products{
+        padding: 0 var(--spacing-20);
+    }
+
+    .products:first-child .products-image{
+        margin-left: -2rem;
+    }
+    
+}
+
+/* Phone and Tablet end */

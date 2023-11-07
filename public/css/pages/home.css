@@ -1,0 +1,215 @@
+/* Banner style */
+
+.hero{
+    background-image: url(../../images/funkos-banner.webp);
+    background-position: top;
+    background-size: cover;
+    background-attachment: fixed;
+    filter: blur(0px);
+    position: relative;
+    padding: var(--spacing-68) 0;
+}
+
+.hero::before{
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backdrop-filter: blur(2px) brightness(45%);
+}
+
+.hero-content{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-20);
+    align-items: start;
+    z-index: 2;
+    position: relative;
+    padding: var(--spacing-68) var(--spacing-128);
+}
+
+.hero-title{
+    font-family: var(--secondary-font);
+    font-size: var(--font-jumbo);
+    color: var(--light-font-solid);
+}
+
+.hero-text{
+    font-family: var(--secondary-font);
+    font-size: var(--font-medium);
+    color: var(--light-font-solid);
+}
+
+.hero-link{
+    display: inline-block;
+    font-size: var(--font-medium);
+    background-color: var(--light-background-solid);
+    padding: var(--spacing-12) var(--spacing-68);
+    border-radius: 50px;
+    font-weight: 500;
+    transition: all 0.05s;
+}
+
+.hero-link:hover{
+    background-color: var(--primary-900);
+    transition: background .2s ease-in-out;
+}
+
+/* Banner style end*/
+
+
+/* All articles style */
+
+.article-collection{
+    padding: var(--spacing-24) 0;
+}
+
+.collection{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    padding: 0 var(--spacing-128);
+}
+
+.collection-content{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-24);
+    align-items: start;
+}
+
+.collection-text{
+    font-family: var(--secondary-font);
+    font-size: var(--font-large);
+    font-weight: 300;
+    border-bottom: 3px solid var(--primary-solid);
+    padding-bottom: var(--spacing-20);
+}
+
+.collection-link{
+    display: inline-block;
+    font-size: var(--font-medium);
+    color: var(--light-font-solid);
+    background-color: var(--dark-background-solid);
+    padding: var(--spacing-16) var(--spacing-36);
+    border-radius: 50px;
+    font-weight: 400;
+}
+
+.collection-link:hover{
+    background-color: var(--primary-900);
+    transition: background .2s ease-in-out;
+}
+
+/* All articles style end */
+
+
+/*---------------*/
+/*  Responsive  */
+/*--------------*/
+
+/* Phone and Tablet */
+
+@media screen and (max-width:1000px) {
+
+    /* Banner style */
+
+    .hero{
+        padding: 9.5rem var(--spacing-20);
+    }
+
+    .hero-content{
+        align-items: center;
+        padding: 0px;
+    }
+
+    .hero-title{
+        text-align: center;
+    }
+
+    .hero-text{
+        text-align: center;
+    }
+
+    /* Banner style end */
+
+
+    /* All articles style */
+
+    .collection{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        align-items: center;
+        padding: 0 var(--spacing-36);
+    }
+
+    .collection:first-child .collection-image{
+        order: -1;
+        margin-left: -5rem;
+    }
+
+    .collection:last-child .collection-image{
+        order: -1;
+    }
+
+    .collection-content{
+        gap: var(--spacing-8);
+        align-items: center;
+    }
+
+    .collection-title{
+        font-weight: 500;
+        text-align: center;
+    }
+    
+    .collection-text{
+        font-size: var(--font-large);
+        font-weight: 300;
+        border-bottom: 3px solid var(--secondary-solid);
+        padding-bottom: var(--spacing-20);
+        text-align: center;
+    }
+    
+    .collection-link{
+        display: inline-block;
+        font-size: var(--font-medium);
+        color: var(--light-font-solid);
+        background-color: var(--dark-background-solid);
+        padding: var(--spacing-16) var(--spacing-36);
+        border-radius: 50px;
+        font-weight: 400;
+        align-self: center;
+    }
+
+    /* All articles style end*/
+}
+
+
+@media screen and (max-width:400px) {
+
+    /* Banner style */
+
+    .hero-title{
+        font-size: var(--font-display);
+    }
+
+    .collection{
+        padding: 0 var(--spacing-8);
+        max-width: 100%;
+    }
+
+    .collection:first-child .collection-image{
+        margin-left: -2rem;
+        max-width: 100%;
+    }
+
+    .collection:first-child .collection-title{
+        font-size: var(--font-jumbo);
+    }
+
+    /* Banner style end */
+}
+
+/* Phone and Tablet end */

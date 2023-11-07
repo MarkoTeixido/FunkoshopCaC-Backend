@@ -1,0 +1,29 @@
+/* Plus and Minus Buttons Styles */
+
+.input-box{
+    display: flex;
+    justify-self: center;
+    gap: 0.5rem;
+}
+
+.input-box input{
+    border: 1px solid #C9C9C9;
+    width: 7rem;
+    font-size: var(--font-xsmall);
+    font-weight: 700;
+    text-align: center;
+}
+
+.input-box-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-box-buttons button{
+    border: none;
+    width: 1.8rem;
+    font-weight: 700;
+}
+
+/* Plus and Minus Buttons Styles end */

@@ -1,0 +1,9 @@
+/* Main Titles Styles */
+
+.title{
+    font-family: var(--secondary-font);
+    font-size: var(--font-display);
+    font-weight: 600;
+}
+
+/* Main Titles Styles end*/

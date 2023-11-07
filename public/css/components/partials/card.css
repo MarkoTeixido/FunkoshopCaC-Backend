@@ -1,0 +1,79 @@
+/* Card style */
+
+.card{
+    width: 100%;
+}
+
+.card-content{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-12);
+    padding: var(--spacing-16);
+}
+
+.card-content-category{
+    font-size: var(--font-xsmall);
+    font-weight: 500;
+}
+
+.card-content-name{
+    font-size: var(--font-medium);
+    font-weight: 700;
+}
+
+.card-content-price{
+    font-size: var(--font-small);
+}
+
+.card-content-prom{
+    font-size: var(--font-xsmall);
+    color: var(--secondary-solid);
+    font-weight: 700;
+}
+
+.card-image{
+    display: flex;
+    position: relative;
+}
+
+.card-image-tag{
+    font-size: var(--font-xsmall);
+    text-transform: uppercase;
+    background-color: var(--primary-solid);
+    color: var(--light-font-solid);
+    padding: var(--spacing-8) var(--spacing-12);
+    position: absolute;
+    right: 0;
+}
+
+.card-image img{
+    animation: fade 1.5s;
+}
+
+.card-image__back{
+    display: none;
+}
+
+.card-image:hover .card-image__back{
+    display: block;
+}
+
+.card-image:hover .card-image__front{
+    display: none;
+}
+
+/* Card style end */
+
+/*---------------*/
+/*  Responsive  */
+/*--------------*/
+
+/* Phone and Tablet */
+
+@media screen and (max-width: 750px) {
+    .card-image-tag{
+        right: 1rem;
+    }
+}
+
+/* Phone and Tablet end */

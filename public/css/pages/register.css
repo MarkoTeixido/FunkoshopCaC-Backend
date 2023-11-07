@@ -1,0 +1,140 @@
+#section-register__person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-28) 0;
+    gap: 15px;
+}
+
+.section-register__titles{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.register__title {
+    text-align: center;
+}
+
+.register__subtitle {
+    font-size: var(--font-large);
+    font-family: var(--secondary-font);
+    font-weight: 400;
+}
+
+.formRegister {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-12);
+}
+
+.formRegister .container--labelsAndInputs, .container--form__termAndCondi{
+    justify-content: center;
+}
+
+.container--labelsAndInputs{
+    display: grid;
+    grid-template-columns: 0.88fr 1fr;
+}
+
+.container--labels{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.container--inputs{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+}
+
+.label-register{
+    font-family: var(--primary-font);
+    font-size: var(--font-medium);
+    padding: var(--spacing-20) 0 0;
+}
+
+.input-register{
+    width: 100%;
+    font-family: var(--primary-font);
+    font-size: var(--font-medium);
+    padding: var(--spacing-20) 0 0;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid var(--primary-solid);
+}
+
+.input-register::placeholder{
+    color: #c7c7c7c7;
+}
+
+.container--form__termAndCondi{
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-20) 0 0;
+    gap: 30px;
+}
+
+.btn-register{
+    text-decoration: none;
+    background-color:var(--primary-solid);
+    color: white;
+    border: none;
+    padding: var(--spacing-12) var(--spacing-20);
+    font-size: var(--font-small);
+    font-family: var(--primary-font);
+    cursor: pointer;
+}
+
+.btn-register:hover{
+    background-color: rgba(230, 0, 0, 0.9);
+    transition: background .2s ease-in-out;
+}
+
+.termAndCondi--Button{
+    display: flex;
+    align-items: center;
+    font-size: var(--primary-font);
+    gap: 5px;
+}
+
+.termAndCondi{
+    font-size: var(--font-xsmall);
+    font-weight: 400;
+}
+
+.linkToTermAndCondi{
+    color: var(--secondary-solid);
+}
+
+/*---------------*/
+/*  Responsive  */
+/*--------------*/
+
+/* Phone and Tablet */
+@media screen and (max-width:750px){
+    #section-register__person{
+        gap: 5px;
+    }
+    
+    .register__subtitle{
+        font-size: var(--font-medium-l);
+        text-align: center;
+    }
+
+    .container--labelsAndInputs{
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+    }
+
+    .container--form__termAndCondi{
+        padding: var(--spacing-28) 0 0;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Phone and Tablet end */
