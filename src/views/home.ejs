@@ -1,0 +1,60 @@
+<!--Header section with NavBar-->
+<%- include('./components/general/header.ejs') %>
+<!--Header section with NavBar end-->
+<main>
+    <!--Banner section-->
+    <section class="hero">
+        <article class="hero-content container">
+            <h1 class="hero-title">Nuevos Ingresos</h1>
+            <p class="hero-text">Descubrí el próximo Funko Pop de tu colección</p>
+            <a class="hero-link" href="./pages/shop.html">Shop</a>
+        </article>
+    </section>
+    <!--Banner section end-->
+
+    <!--All articles and slider section-->
+    <section class="article-collection container">
+        <article class="collection">
+            <div class="collection-content">
+                <h3 class="collection-title title">STAR WARS & THE MANDALORIAN</h3>
+                <p class="collection-text">Disfruta de una saga que sigue agregando personajes a su colección.</p>
+                <a class="collection-link" href="./pages/shop.html">VER COLECCIÓN</a>
+            </div>
+            <picture class="collection-image">
+                <img src="./images/star-wars/baby-yoda-1.webp" alt="Figura coleccionable funko - Baby Yoda">
+            </picture>
+        </article>
+        <article class="collection">
+            <picture class="collection-image">
+                <img src="./images/pokemon/vulpix-1.webp" alt="Figura coleccionable funko - Vulpix">
+            </picture>
+            <div class="collection-content">
+                <h3 class="collection-title title">POKEMON INDIGO</h3>
+                <p class="collection-text">Atrapa todos los que puedas y disfruta de una colección llena de amigos.
+                </p>
+                <a class="collection-link" href="./pages/shop.html">VER COLECCIÓN</a>
+            </div>
+        </article>
+        <article class="collection">
+            <div class="collection-content">
+                <h3 class="collection-title title">HARRY POTTER</h3>
+                <p class="collection-text">Revive los recuerdos de una saga llena de magia y encanto.</p>
+                <a class="collection-link" href="./pages/shop.html">VER COLECCIÓN</a>
+            </div>
+            <picture class="collection-image">
+                <img src="./images/harry-potter/snape-patronus-1.webp"
+                    alt="Figura coleccionable funko - Snape Patronus">
+            </picture>
+        </article>
+    </section>
+    <!--All articles and slider section end-->
+
+    <!--Slider section-->
+    <%- include('./components/partials/slider.ejs') %>
+    <!--Slider section end-->
+
+</main>
+
+<!--Footer section-->
+<%- include('./components/general/footer.ejs') %>
+<!--Footer section end-->

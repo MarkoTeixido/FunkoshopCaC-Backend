@@ -1,6 +1,18 @@
+const data = require('../../funkosData.json');
+
 const mainControllers = {
-    homeView: (req, res) => res.send("Route for home view controller"),
-    contactView: (req, res) => res.send("Route for contact view"),
+    homeView: (req, res) => res.render('home', {
+        view: {
+          title: "Home | Funkoshop"
+        },
+        collections: data 
+    }),
+    contactView: (req, res) => res.render('user/contact', {
+      view: {
+        title: "Contact | Funkoshop"
+      },
+      collections: data 
+    }),
     aboutView: (req, res) => res.send("Route for about view controller"),
     faqsView: (req, res) => res.send("Route for faqs view")
 }

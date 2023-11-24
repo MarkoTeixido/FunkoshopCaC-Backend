@@ -1,0 +1,41 @@
+<!--Slider Section-->
+<section class="wrapper-slider container">
+    <article class="slider container">
+        <h2 class="slider-title title">ÚLTIMOS LANZAMIENTOS</h2>
+        <!--FunkoPop cards-->
+        <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+                <ul class="glide__slides slider-article">
+
+                <% collections.forEach( collection => { %>
+                    <li class="slider-items">
+                        <a class="card-link" href="./pages/item.html">
+                            <figure class="card-image">
+                                <span class="card-image-tag">NUEVO</span>
+                                <img class="card-image__front" src="<%= collection.img_front %>"
+                                    alt="Figura coleecionable funko - Stormtrooper">
+                                <img class="card-image__back" src="<%= collection.img_back %>"
+                                    alt="Figura coleecionable funko - Stormtrooper Box">
+                            </figure>
+                            <div class="card-content">
+                                <p class="card-content-category"><%= collection.licence_name %></p>
+                                <h4 class="card-content-name"><%= collection.product_name %></h4>
+                                <p class="card-content-price">&#36; <%= collection.product_price %></p>
+                                <p class="card-content-prom">3 CUOTAS SIN INTERÉS</p>
+                            </div>
+                        </a>
+                    </li>
+
+                <% }); %>
+                </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+                <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i
+                        class="fa-solid fa-chevron-left"></i></button>
+                <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i
+                        class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </article>
+</section>
+<!--Slider section end-->
