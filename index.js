@@ -1,23 +1,27 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 
 //Import routes
-const mainRoutes = require('./src/router/mainRoutes');
+const mainRoutes = require("./src/router/mainRoutes");
+const shopRoutes = require("./src/router/shopRoutes");
 //---
 
 //Set static file folder
-app.use(express.static('public'));
+app.use(express.static("public"));
 //---
 
 //Set Template Engine (EJS)
-app.set('view engine', 'ejs');
-app.set('views', './src/views');
+app.set("view engine", "ejs");
+app.set("views", "./src/views");
 //---
 
 //Set plication routes
-app.use('/', mainRoutes);
+app.use("/", mainRoutes);
+app.use ("/shop", shopRoutes);
 //---
 
 //Set the server to be heard on port 4000
-app.listen(4000, () => console.log("🚀 servidor de Funkoshop corriendo en http://localhost:4000"));
+app.listen(4000, () =>
+  console.log("🚀 servidor de Funkoshop corriendo en http://localhost:4000")
+);
 //---
