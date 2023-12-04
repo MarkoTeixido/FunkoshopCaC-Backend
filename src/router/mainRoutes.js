@@ -10,3 +10,6 @@ router.get('/faqs', mainControllers.faqsView);
 
 
 module.exports = router;
+
+//---fin mainRoutes
+
