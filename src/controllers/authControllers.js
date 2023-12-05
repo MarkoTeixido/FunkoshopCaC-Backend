@@ -8,7 +8,7 @@ const authControllers = {
         collections: data 
     }),
     loginUser: (req, res) => {},
-    registerView: (req, res) => res.send('auth/register', {
+    registerView: (req, res) => res.render('auth/register', {
         view:{
             title: "Register | Funkoshop"
         },
