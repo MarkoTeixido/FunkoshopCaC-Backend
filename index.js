@@ -5,7 +5,7 @@ const app = express();
 //Import routes
 const mainRoutes = require("./src/router/mainRoutes");
 const shopRoutes = require("./src/router/shopRoutes");
-const adminRoutes = require('./src/router/adminRoutes')
+const adminRoutes = require('./src/router/adminRoutes');
 //---
 
 //Set static file folder
@@ -20,7 +20,7 @@ app.set("views", "./src/views");
 
 //Set plication routes
 app.use("/", mainRoutes);
-app.use('/shop', shopRoutes);
+app.use("/shop", shopRoutes);
 app.use('/admin', adminRoutes)
 //---
 
