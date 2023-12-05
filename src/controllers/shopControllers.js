@@ -1,9 +1,16 @@
+const data = require("../../funkosData.json");
+
 const shopControllers = {
-    shop: (req, res) => res.send ('Route for Shop view'),
-    id: (req, res) => res.send ('Route for find and retrieve a product from the id'),
-    item: (req, res) => res.send ('Route for add the current item to the shop cart'),
-    cart: (req, res) => res.send ('Route for cart view'),
-    checkout: (req, res) => res.send ('Route for go to checkout page'),
-}
+  shopView: (req, res) => res.render("user/shop", {
+    view: {
+      title: "Shop | Funkoshop"
+    },
+    collections: data
+  }),
+  idView: (req, res) =>res.render("Route for find and retrieve a product from the id"),
+  itemView: (req, res) =>res.render("Route for add the current item to the shop cart"),
+  cartView: (req, res) => res.render("Route for cart view"),
+  checkoutView: (req, res) => res.render("Route for go to checkout page"),
+};
 
 module.exports = shopControllers;

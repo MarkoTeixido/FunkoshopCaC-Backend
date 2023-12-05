@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 
+
 //Import routes
 const mainRoutes = require("./src/router/mainRoutes");
 const shopRoutes = require("./src/router/shopRoutes");
@@ -14,11 +15,12 @@ app.use(express.static("public"));
 //Set Template Engine (EJS)
 app.set("view engine", "ejs");
 app.set("views", "./src/views");
+
 //---
 
 //Set plication routes
 app.use("/", mainRoutes);
-app.use("/shop", shopRoutes);
+app.use('/shop', shopRoutes);
 app.use('/admin', adminRoutes)
 //---
 

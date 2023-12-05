@@ -4,10 +4,10 @@ const shopControllers = require ('../controllers/shopControllers');
 
 
 
-router.get('/', shopControllers.shop);
-router.get('/item/:id', shopControllers.id);
-router.post('/item/:id/add', shopControllers.item );
-router.get('/cart', shopControllers.cart);
-router.post ('/cart', shopControllers.checkout);
+router.get('/', shopControllers.shopView);
+router.get('/item/:id', shopControllers.idView);
+router.post('/item/:id/add', shopControllers.itemView );
+router.get('/cart', shopControllers.cartView);
+router.post ('/cart', shopControllers.checkoutView);
 
 module.exports = router;
