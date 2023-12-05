@@ -1,0 +1,57 @@
+<!--Header section with NavBar-->
+<%- include('../components/general/header-admin.ejs') %>
+<!--Header section with NavBar end-->
+
+<!--Main content section-->
+<main>
+    <section class="prod-list-wrapper container">
+      <div class="prod-list-search-section">
+        <label class="prod-list-search-icon" for="search">
+          <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+        </label>
+        <input type="text" name="buscar" placeholder="código, nombre o categoria"/>
+      </div>
+      <div class="prod-list">
+        <div class="prod-list-title-section">
+          <h1 class="prod-list-title title">LISTADO DE PRODUCTOS</h1>
+          <div class="prod-list-add">
+            <p class="prod-list-add-label">AGREGAR</p>
+            <button class="prod-list-add-button"><i class="fa-solid fa-plus fa-xl"></i></button>
+          </div>
+        </div>
+        <div class="prod-list-table-container">
+          <table class="prod-list-table">
+            <tbody>
+              <tr class="prod-list-row">
+                <th class="prod-list-row-item row-item-title">ID</th>
+                <th class="prod-list-row-item row-item-title">Código</th>
+                <th class="prod-list-row-item row-item-title">Nombre del Producto</th>
+                <th class="prod-list-row-item row-item-title">Categoria</th>
+              </tr>
+              <tr class="prod-list-row">
+                <td class="prod-list-row-item row-item-added">1</td>
+                <td class="prod-list-row-item row-item-added">STW001001</td>
+                <td class="prod-list-row-item row-item-added">Baby Yoda Blueball</td>
+                <td class="prod-list-row-item row-item-added">STAR WARS</td>
+                <td class="prod-list-row-item row-item-added">
+                  <div class="row-item-added-icons">
+                    <button>
+                      <img src="../images/icons/edit_pencil.svg" alt="lapiz">
+                    </button>
+                    <button>
+                      <img src="../images/icons/delete_trash.svg" alt="basura">
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!--Main content section end-->
+
+<!--Footer section-->
+<%- include('../components/general/footer-admin.ejs') %>
+<!--Footer section end-->
