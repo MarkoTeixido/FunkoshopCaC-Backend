@@ -29,20 +29,24 @@
                 <th class="prod-list-row-item row-item-title">Categoria</th>
               </tr>
               <tr class="prod-list-row">
-                <td class="prod-list-row-item row-item-added">1</td>
-                <td class="prod-list-row-item row-item-added">STW001001</td>
-                <td class="prod-list-row-item row-item-added">Baby Yoda Blueball</td>
-                <td class="prod-list-row-item row-item-added">STAR WARS</td>
-                <td class="prod-list-row-item row-item-added">
-                  <div class="row-item-added-icons">
-                    <button>
-                      <img src="../images/icons/edit_pencil.svg" alt="lapiz">
-                    </button>
-                    <button>
-                      <img src="../images/icons/delete_trash.svg" alt="basura">
-                    </button>
-                  </div>
-                </td>
+
+                <% collections.forEach( collection => { %>
+                    <td class="prod-list-row-item row-item-added"><%= collection.product_id %></td>
+                    <td class="prod-list-row-item row-item-added"><%= collection.product_sku %></td>
+                    <td class="prod-list-row-item row-item-added"><%= collection.product_name %></td>
+                    <td class="prod-list-row-item row-item-added"><%= collection.licence_name %></td>
+                    <td class="prod-list-row-item row-item-added">
+                    <div class="row-item-added-icons">
+                        <button>
+                        <img src="../images/icons/edit_pencil.svg" alt="lapiz">
+                        </button>
+                        <button>
+                        <img src="../images/icons/delete_trash.svg" alt="basura">
+                        </button>
+                    </div>
+                    </td>
+                <% }); %>
+                
               </tr>
             </tbody>
           </table>
