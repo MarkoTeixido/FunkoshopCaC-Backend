@@ -7,7 +7,7 @@ const mainControllers = {
         },
         collections: data 
     }),
-    contactView: (req, res) => res.render('user/contact', {
+    contactView: (req, res) => res.render('contact', {
       view: {
         title: "Contact | Funkoshop"
       },

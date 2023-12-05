@@ -1,7 +1,7 @@
 const data = require("../../funkosData.json");
 
 const shopControllers = {
-  shopView: (req, res) => res.render("user/shop", {
+  shopView: (req, res) => res.render("shop/shop", {
     view: {
       title: "Shop | Funkoshop"
     },
