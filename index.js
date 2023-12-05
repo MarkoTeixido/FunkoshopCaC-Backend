@@ -9,13 +9,12 @@ const adminRoutes = require('./src/router/adminRoutes');
 //---
 
 //Set static file folder
-app.use(express.static("public"));
+app.use(express.static(path.resolve(__dirname, "public")));
 //---
 
 //Set Template Engine (EJS)
 app.set("view engine", "ejs");
-app.set("views", "./src/views");
-
+app.set("views", path.resolve(__dirname, "./src/views"));
 //---
 
 //Set plication routes
