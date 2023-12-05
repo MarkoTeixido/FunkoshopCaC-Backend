@@ -1,0 +1,91 @@
+<!--Header section with NavBar-->
+<%- include('../components/general/header-admin.ejs') %>
+<!--Header section with NavBar end-->
+
+<!--Main content section-->
+<main class="main-edit">
+    <h1 class="h1-edit">EDITAR ITEM</h1>
+
+    <div class="edit-tipo">
+        <div>
+            <label for="categoria">Categoría:</label>
+            <select class="edit-valu" style="cursor: pointer" name="categoria">
+                <option value="figuras-naruto">Naruto</option>
+                <option value="figuras-pokemon">Pokemon</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="licencia">Licencia:</label>
+            <select class="edit-valu" style="cursor: pointer" name="licencia">
+                <option value="licencia-naruto">Naruto Shippuden</option>
+                <option value="licencia-pokemon">Pokemon</option>
+            </select>
+        </div> 
+    </div>
+
+    <div class="edit-tipo">
+        <label for="nombre-producto">Nombre del producto:</label> 
+        <input class="edit-product" type="text" id="nombre-producto" />
+    </div>
+
+    <div class="text-edit">
+        <textarea class="edit-text" name="texto" rows="6" cols="80" placeholder="Descripción del producto"></textarea>
+    </div>
+
+    
+    <div class="edit-tipo">
+        <div>   
+            <label for="sku">SKU:</label> 
+            <input class="edit-sps" type="text" id="sku" />
+        </div>
+        
+        <div>
+            <label for="precio">Precio:</label> 
+            <input class="edit-sps" type="text" id="precio" />
+        </div>
+
+        <div>
+            <label for="stock">Stock:</label> 
+            <input class="edit-sps" type="text" id="stock" />
+        </div>
+    </div>
+
+    <div class="edit-tipo">
+        <div>
+            <label for="descuento">Descuento:</label> 
+            <input class="descuento" type="text" id="descuento" />
+        </div>
+
+        <label for="cuotas">Cuotas:</label>
+        <select class="edit-dc" name="cuotas" id="cuotas">
+            <option value="numero-cuotas">3 Cuotas sin interés</option>
+            <option value="numero-cuotas">6 Cuotas sin interés</option>
+            <option value="numero-cuotas">12 Cuotas sin interés</option>
+        </select>
+    </div>
+
+    <div class="edit-tipo">
+        <label for="imagenes">Imágenes:</label>
+        <input class="edit-file " type="file" id="imagenes">
+    </div>
+
+    <div class="container-card">
+        <section class="card-edit">
+            <img class="img-edit" src="../images/naruto/kakashi_hatake_front.webp" alt="Figura coleccionable funko - Kakashi">
+            <p class="p-carga">Frente</p>
+            <input class="button-mod" type="button" style="cursor:pointer" value="Modificar Producto">
+        </section>
+
+        <section class="card-edit">
+            <img class="img-edit" src="../images/naruto/kakashi_hatake_back.webp" alt="Figura coleccionable funko - Kakashi Box">
+            <p class="p-carga">Dorso</p>
+        </section>
+    </div>
+</main>
+<!--Main content section end-->
+
+
+<!--Footer section-->
+<%- include('../components/general/footer-admin.ejs') %>
+<!--Footer section end-->

@@ -1,0 +1,86 @@
+<!--Header section with NavBar-->
+<%- include('../components/general/header-admin.ejs') %>
+<!--Header section with NavBar end-->
+
+<!--Main content section-->
+<main>
+    <section id="section-create__item">
+        <h2 class="title-section-create">CREAR NUEVO ITEM</h2>
+        <div id="container-form__item">
+            <form action="" method="post" id="formItems">
+
+                <div>
+
+                    <div class="container-form__fields">
+                        <label for="category" class="label-create">Categoria:</label>
+                        <select id="category" name="categoria" class="select-createItem">
+                            <option disabled selected>Seleccionar</option>
+                            <option value="starWars">Star Wars</option>
+                            <option value="pokemon">Pokemon</option>
+                            <option value="harryPotter">Harry Potter</option>
+                        </select>
+
+                        <label for="license" class="label-create license">Licencia:</label>
+                        <select id="license" name="licencia" class="select-createItem">
+                            <option disabled selected>Seleccionar</option>
+                            <option value="licenNarutoShippuden">Naruto Shippuden</option>
+                            <option value="licenPokemon">Pokemon</option>
+                        </select>
+                    </div>
+
+                    <div class="container-form__fields">
+                        <label for="nameProduct" class="label-create">Nombre del producto:</label>
+                        <input type="text" name="nombreProducto" id="nameProduct"
+                            placeholder="Kakashi Hatake Shippuden Saga" class="input-create">
+                    </div>
+
+                    <div class="container-form__fields">
+                        <textarea name="descriProduct" id="descriptionProduct"
+                            placeholder="Descripcion del producto" cols=63 rows=10></textarea>
+                    </div>
+
+                    <div class="container-form__fields">
+                        <label for="sku" class="label-create">SKU:</label>
+                        <input id="sku" name="sku" type="text" placeholder="SSK111AB001" class="input-create">
+
+                        <label for="price" class="label-create">Precio:</label>
+                        <input id="price" name="precio" type="number" placeholder="$0.000,00" class="input-create">
+
+                        <label for="stock" class="label-create">Stock:</label>
+                        <input id="stock" name="stock" type="number" placeholder="0" class="input-create">
+                    </div>
+
+                    <div class="container-form__fields">
+                        <label for="discount" class="label-create">Descuento:</label>
+                        <input id="discount" name="descuento" type="number" placeholder="0%" class="input-create">
+
+                        <label for="cuotas" class="label-create">Cuotas:</label>
+                        <select id="cuotas" name="cuotas" class="select-createItem">
+                            <option selected>3 Cuotas sin interes</option>
+                            <option value="seisCuotas">6 Cuotas sin interes</option>
+                            <option value="doceCuotas">12 Cuotas sin interes</option>
+                            <option value="dieciOchoCuotas">18 Cuotas sin interes</option>
+                            <option value="veintiCuatroCuotas">24 Cuotas sin interes</option>
+                        </select>
+                    </div>
+
+                    <label for="image" class="label-create">Imágenes:</label>
+                    <input type="file" name="image" id="image" accept="image/*" multiple>
+
+                </div>
+
+                <div class="container-btns">
+
+                    <button type="submit" class="btns-pageCrear">Agregar Producto</button>
+
+                    <button type="reset" class="btns-pageCrear">Limpiar</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+<!--Main content section end-->
+
+<!--Footer section-->
+<%- include('../components/general/footer-admin.ejs') %>
+<!--Footer section end-->
