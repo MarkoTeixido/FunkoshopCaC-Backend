@@ -1,16 +1,25 @@
 const data = require('../../funkosData.json')
 
 const adminControllers = {
-    // index: (req,res) => res.render('admin', {
-    //     view: {
-    //         title: "Admin | Funkoshop"
-    //     },
-    //     collections: data
-    // }),
-    index: (req, res) => res.send("Route for display the list of products"),
-    storeView: (req, res) => res.send("Route for view form create product"),
+    index: (req, res) => res.render('admin/admin', {
+        view: {
+            title: "Admin | Productos"
+        },
+        collections: data
+    }),
+    storeView: (req, res) => res.render('admin/create', {
+        view: {
+            title: "Admin | Crear producto"
+        },
+        collections: data
+    }),
     store: (req, res) => res.send('Route for create a product'),
-    updateView: (req, res) => res.send('Route for see the view and Information of the product to modify'),
+    updateView: (req, res) => res.render('admin/edit', {
+        view: {
+            title: "Admin | Editar producto"
+        },
+        collections: data
+    }),
     update: (req, res) => res.send('Route for edit a product'),
     delete: (req, res) => res.send('Route for delete a product'),
 }
