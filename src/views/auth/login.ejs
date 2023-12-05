@@ -1,0 +1,35 @@
+<%- include('./components/general/header-admin.ejs') %>
+    <main class="main-login">
+        <section id="section-register__person" class="container">
+            <h2 class="login-title title">INGRESAR A MI CUENTA</h2>
+
+            <div id="container-form__register">
+                <form action="" method="post" id="formRegister" class="formRegister">
+                    <div class="container--labelsAndInputs">
+                        <div class="container--labels">
+                            <label for="email" class="label-register">Email:</label>
+                            <label for="password" class="label-register">Contraseña:</label>
+                        </div>
+                        <div class="container--inputs">
+                            <input name="email" id="email" type="email" placeholder="johndoe@correo.com"
+                                class="input-register" />
+                            <input name="contrasenia" id="password" type="password" placeholder="●●●●●●●●●●"
+                                class="input-register" />
+                        </div>
+                    </div>
+
+                    <div class="container--form__termAndCondi">
+                        <button type="submit" class="btn-register">Ingresar</button>
+                        <div class="termAndCondi--Button">
+                            <input id="termAndCondi" name="termAndCondi" type="checkbox" />
+                            <label for="termAndCondi" class="termAndCondi">Recordarme </label>
+                        </div>
+                    </div>
+                    <div class="container--form__olviMiContra">
+                        <a href="" class="linkOlviMiContra">Olvidé mi contraseña</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+<%- include('./components/general/footer.ejs') %>
