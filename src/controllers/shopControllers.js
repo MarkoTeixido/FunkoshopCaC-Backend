@@ -8,11 +8,13 @@ const shopControllers = {
     collections: data
   }),
   idView: (req, res) =>res.send("Route for find and retrieve a product from the id"),
-  itemView: (req, res) =>res.render("shop/item", {
-    view: {
-      title: "Item | Funkoshop"
-    },
-    collections: data
+  itemView: (req, res, id) => res.render("shop/item", {
+        
+        view: {
+          title: "Item | Funkoshop"
+        },
+        collections: data
+    
   }),
   cartView: (req, res) => res.render("shop/cart", {
     view: {
