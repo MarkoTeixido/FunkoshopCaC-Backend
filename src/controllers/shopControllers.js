@@ -7,9 +7,19 @@ const shopControllers = {
     },
     collections: data
   }),
-  idView: (req, res) =>res.render("Route for find and retrieve a product from the id"),
-  itemView: (req, res) =>res.render("Route for add the current item to the shop cart"),
-  cartView: (req, res) => res.render("Route for cart view"),
+  idView: (req, res) =>res.send("Route for find and retrieve a product from the id"),
+  itemView: (req, res) =>res.send("shop/item", {
+    view: {
+      title: "Item | Funkoshop"
+    },
+    collections: data
+  }),
+  cartView: (req, res) => res.render("shop/cart", {
+    view: {
+      title: "Carrito | Funkoshop"
+    },
+    collections: data
+  }),
   checkoutView: (req, res) => res.render("Route for go to checkout page"),
 };
 
