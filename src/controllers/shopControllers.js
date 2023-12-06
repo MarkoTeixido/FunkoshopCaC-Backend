@@ -8,7 +8,7 @@ const shopControllers = {
     collections: data
   }),
   idView: (req, res) =>res.send("Route for find and retrieve a product from the id"),
-  itemView: (req, res) =>res.send("shop/item", {
+  itemView: (req, res) =>res.render("shop/item", {
     view: {
       title: "Item | Funkoshop"
     },
