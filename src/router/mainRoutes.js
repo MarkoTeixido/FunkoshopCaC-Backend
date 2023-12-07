@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mainControllers = require('../controllers/mainControllers');
 
-
+router.get('/', mainControllers.defaultView);
 router.get('/home', mainControllers.homeView);
 router.get('/contact', mainControllers.contactView);
 router.get('/about', mainControllers.aboutView);

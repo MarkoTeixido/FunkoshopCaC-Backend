@@ -1,6 +1,12 @@
 const data = require('../../funkosData.json');
 
 const mainControllers = {
+    defaultView: (req, res) => res.render('home', {
+      view: {
+        title: "Home | Funkoshop"
+      },
+      collections: data
+    }),
     homeView: (req, res) => res.render('home', {
         view: {
           title: "Home | Funkoshop"
