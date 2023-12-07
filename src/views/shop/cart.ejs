@@ -1,0 +1,85 @@
+<!--Header section with NavBar-->
+<%- include('../components/general/header.ejs') %>
+<!--Header section with NavBar end-->
+
+
+    <!--Main content section-->
+    <main class="cart container">
+        <!--Cart content section-->
+        <section class="cart-wrapper">
+          <h1 class="cart-title title">CARRITO DE COMPRAS</h1>
+          <ul class="cart-list">
+            <li class="cart-item">
+              <div class="cart-item-sections cart-item-general">
+                <p>DETALLE DEL PRODUCTO</p>
+                <p>CANTIDAD</p>
+                <p>TOTAL</p>
+              </div>
+            </li>
+            <li class="cart-item">
+              <div class="cart-item-selected cart-item-general">
+                <div class="cart-item-funko">
+                  <img
+                    src="../images/star-wars/baby-yoda-1.webp"
+                    alt="Figura coleccionable funko - Baby Yoda"
+                  />
+                  <div class="cart-item-funko-info">
+                    <h3 class="cart-item-funko-name">BABY YODA BLUEBALL</h3>
+                    <p class="cart-item-funko-category">STAR WARS</p>
+                    <p class="cart-item-funko-price">PRECIO: &#36; 1799,99</p>
+                  </div>
+                </div>
+                <div class="cart-item-input input-box">
+                  <input
+                    type="text"
+                    name="quantity"
+                    id="quantity"
+                    placeholder="0"
+                  />
+                  <div class="cart-item-input-buttons input-box-buttons">
+                    <button id="add">+</button>
+                    <button id="subtrack">-</button>
+                  </div>
+                </div>
+                <p class="cart-item-price-total">&#36; 3599,98</p>
+                <button class="cart-item-delete-button">
+                  <i class="fa-regular fa-circle-xmark fa-2xl"></i>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <!--Cart content section end-->
+  
+        <!--Resumen content section-->
+        <section class="cart-resume-wrapper">
+          <h2 class="cart-title title">RESUMEN</h2>
+          <div class="cart-resume">
+            <div class="cart-resume-item cart-resume-radius-top">
+              <p>CANTIDAD DE ELEMENTOS</p>
+              <p>3</p>
+            </div>
+            <div class="cart-resume-item">
+              <p>SUBTOTAL</p>
+              <p>&#36; 5399,97</p>
+            </div>
+            <div class="cart-resume-item divider">
+              <p>ENVIO</p>
+              <p>&#36; 0,00</p>
+            </div>
+            <div class="cart-resume-item cart-resume-radius-bottom">
+              <p>TOTAL</p>
+              <p>&#36; 5399,97</p>
+            </div>
+          </div>
+          <button class="cart-resume-pay-button">IR A PAGAR</button>
+        </section>
+        <!--Resumen content section end-->
+      </main>
+      <!--Main content section end-->
+  
+
+
+<!--Footer section-->
+<%- include('../components/general/footer.ejs') %>
+<!--Footer section end-->
