@@ -1,13 +1,17 @@
 const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
-// Configuración de Sequelize
+// Set Sequelize Config
 const sequelize = new Sequelize(process.env.DB, process.env.USER, process.env.DBPASS,{
   host: process.env.HOST,
-  dialect:'mysql'
+  dialect:'mysql',
+  define: {
+    freezeTableName: true, // Prevent sequelize from pluralizing table names
+    timestamps: false  // Prevent sequelize don't add the timestamp attributes (updatedAt, createdAt)
+  },
 });
 
-// Función asincrona para testear la conexión
+// Set async function for testing DB connection
 async function testConnection() {
   try {
     await sequelize.authenticate();
@@ -17,9 +21,9 @@ async function testConnection() {
   }
 }
 
-testConnection(); // Llamamos a la función para probar la conexión a la base de datos
+testConnection(); // Call to async function for the test connection
 
-// Exportamos la instancia de Sequelize para su uso en otros archivos
+// Export the instance by Sequelize
 module.exports = {
   sequelize,
 };
