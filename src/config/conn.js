@@ -5,6 +5,7 @@ require('dotenv').config();
 // Set Sequelize Config
 const sequelize = new Sequelize(process.env.DB, process.env.USER, process.env.DBPASS,{
   host: process.env.HOST,
+  port: process.env.PORT,
   dialect:'mysql',
   dialectModule: mysql2,
   define: {
