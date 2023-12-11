@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const methodOverride = require('method-override');
+const PORT = process.env.PORT || 3000;
 
 
 //Import routes
@@ -37,7 +38,7 @@ app.use('/auth', authRoutes);
 //---
 
 //Set the server to be heard on port 4000
-app.listen(4000, () =>
-    console.log("🚀 servidor de Funkoshop corriendo en http://localhost:4000")
+app.listen(PORT, () =>
+    console.log(`🚀 servidor de Funkoshop corriendo en http://localhost:${PORT}`)
 );
 //---
