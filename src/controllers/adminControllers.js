@@ -7,13 +7,13 @@ const adminControllers = {
         },
         collections: data
     }),
-    storeView: (req, res) => res.render('admin/create', {
+    createView: (req, res) => res.render('admin/create', {
         view: {
             title: "Admin | Crear producto"
         },
         collections: data
     }),
-    store: (req, res) => res.send('Route for create a product'),
+    create: (req, res) => res.send('Route for create a product'),
     updateView: (req, res) => res.render('admin/edit', {
         view: {
             title: "Admin | Editar producto"
