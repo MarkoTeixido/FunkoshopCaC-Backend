@@ -5,6 +5,7 @@ require('dotenv').config();
 const sequelize = new Sequelize(process.env.DB, process.env.USER, process.env.DBPASS,{
   host: process.env.HOST,
   dialect:'mysql',
+  dialectModule: require('mysql2'),
   define: {
     freezeTableName: true, // Prevent sequelize from pluralizing table names
     timestamps: false  // Prevent sequelize don't add the timestamp attributes (updatedAt, createdAt)
