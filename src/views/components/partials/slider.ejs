@@ -7,20 +7,20 @@
             <div class="glide__track" data-glide-el="track">
                 <ul class="glide__slides slider-article">
 
-                <% collections.forEach( collection => { %>
+                <% Object.values(collections).forEach(collection => { %>
                     <li class="slider-items">
-                        <a class="card-link" href="./pages/item.html">
+                        <a class="card-link" href="/shop/item">
                             <figure class="card-image">
                                 <span class="card-image-tag">NUEVO</span>
-                                <img class="card-image__front" src="<%= collection.img_front %>"
-                                    alt="Figura coleecionable funko - Stormtrooper">
-                                <img class="card-image__back" src="<%= collection.img_back %>"
-                                    alt="Figura coleecionable funko - Stormtrooper Box">
+                                <img class="card-image__front" src="<%= collection.image_front %>"
+                                    alt="<%= collection.product_description %>">
+                                <img class="card-image__back" src="<%= collection.image_back %>"
+                                    alt="<%= collection.product_description %>">
                             </figure>
                             <div class="card-content">
-                                <p class="card-content-category"><%= collection.licence_name %></p>
+                                <p class="card-content-category"><%= collection.licence.licence_name %></p>
                                 <h4 class="card-content-name"><%= collection.product_name %></h4>
-                                <p class="card-content-price">&#36; <%= collection.product_price %></p>
+                                <p class="card-content-price">&#36; <%= collection.price %></p>
                                 <p class="card-content-prom">3 CUOTAS SIN INTERÉS</p>
                             </div>
                         </a>
@@ -30,10 +30,12 @@
                 </ul>
             </div>
             <div class="glide__arrows" data-glide-el="controls">
-                <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i
-                        class="fa-solid fa-chevron-left"></i></button>
-                <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i
-                        class="fa-solid fa-chevron-right"></i></button>
+                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
             </div>
         </div>
     </article>

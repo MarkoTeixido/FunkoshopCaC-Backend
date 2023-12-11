@@ -30,11 +30,11 @@
               </tr>
               <tr class="prod-list-row">
 
-                <% collections.forEach( collection => { %>
+                <% Object.values(collections).forEach(collection => { %>
                     <td class="prod-list-row-item row-item-added"><%= collection.product_id %></td>
-                    <td class="prod-list-row-item row-item-added"><%= collection.product_sku %></td>
+                    <td class="prod-list-row-item row-item-added"><%= collection.sku %></td>
                     <td class="prod-list-row-item row-item-added"><%= collection.product_name %></td>
-                    <td class="prod-list-row-item row-item-added"><%= collection.licence_name %></td>
+                    <td class="prod-list-row-item row-item-added"><%= collection.licence.licence_name %></td>
                     <td class="prod-list-row-item row-item-added">
                     <div class="row-item-added-icons">
                         <button>
@@ -45,7 +45,7 @@
                         </button>
                     </div>
                     </td>
-                <% }); %>
+                  <% }); %>
                 
               </tr>
             </tbody>

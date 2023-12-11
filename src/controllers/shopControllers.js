@@ -1,12 +1,14 @@
-const data = require("../../funkosData.json");
+const data = require("../services/service_product");
 
 const shopControllers = {
-  shopView: (req, res) => res.render("shop/shop", {
-    view: {
-      title: "Shop | Funkoshop"
-    },
-    collections: data
-  }),
+  shopView: async (req, res) => {
+    const collections = await data.getAllProducts();
+    res.render("shop/shop", {
+      view: {
+        title: "Shop | Funkoshop"
+      },
+      collections: collections.data
+  })},
   idView: (req, res) =>res.send("Route for find and retrieve a product from the id"),
   itemView: (req, res, id) => res.render("shop/item", {
         

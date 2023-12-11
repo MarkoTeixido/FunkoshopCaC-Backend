@@ -6,7 +6,7 @@ const { category } = require('../models/model_category');
 // FALTA TERMINAR Y ACOMODAR
 
 // Service product (POST) create
-async function CreateProduct(dataProduct) {
+async function createProduct(dataProduct) {
     try {
         const createdProduct = await product.create({
         product_name: dataProduct.product_name,
@@ -38,7 +38,7 @@ async function CreateProduct(dataProduct) {
 }
     
 // Llama a la funcion para probar
-// CreateProduct();
+// createProduct();
 
 
 // Service product (GET) get all
@@ -253,3 +253,11 @@ const deleteProductById = async (productId) => {
 };
 
 //deleteProductById(productId);
+
+module.exports = {
+  getAllProducts,
+  getProductById,
+  createProduct,
+  updateProductById,
+  deleteProductById
+}
