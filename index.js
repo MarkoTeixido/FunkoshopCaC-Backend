@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const methodOverride = require('method-override');
 
 
 //Import routes
@@ -17,6 +18,15 @@ app.use(express.static(path.resolve(__dirname, "public")));
 //Set Template Engine (EJS)
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "./src/views"));
+//---
+
+//Set middlewares to parse data (POST)
+app.use(express.urlencoded());
+app.use(express.json());
+//---
+
+//Set middleware to enable PUT - DELETE 
+app.use(methodOverride('_method'));
 //---
 
 //Set plication routes

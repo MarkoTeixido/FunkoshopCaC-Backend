@@ -1,5 +1,7 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/conn');
+const { licence } = require('./model_licence');
+const { category } = require('./model_category');
 
 // Set Product Model
 const product = sequelize.define("product", {
@@ -57,5 +59,9 @@ const product = sequelize.define("product", {
     allowNull: true,
   },
 });
+
+// Set relationship with tables
+product.belongsTo(category, { foreignKey: 'category_id' });
+product.belongsTo(licence, { foreignKey: 'licence_id' });
 
 module.exports = { product };
