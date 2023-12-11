@@ -21,7 +21,7 @@ app.set("views", path.resolve(__dirname, "./src/views"));
 //---
 
 //Set middlewares to parse data (POST)
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 //---
 
