@@ -1,32 +1,63 @@
-const data = require("../services/service_product");
+const dataProduct = require("../services/service_product");
+const datalicence = require("../services/service_licence");
+const dataCategory = require("../services/service_category");
 
 const adminControllers = {
     index: async (req, res) => {
-        const collections = await data.getAllProducts();
-        res.render('admin/admin', {
-            view: {
-                title: "Admin | Productos"
-            },
-            collections: collections.data
-        })
+        try{
+            const collections = await dataProduct.getAllProducts();
+            res.render('admin/admin', {
+                view: {
+                    title: "Admin | Productos"
+                },
+                collections: collections.data,
+            }); 
+        } catch(error){
+            console.log(error);
+        }
     },
-    createView: (req, res) => res.render('admin/create', {
-        view: {
-            title: "Admin | Crear producto"
+    createView: async (req, res) => {
+        try{
+            const licences = await datalicence.getAllLicences();
+            const categories = await dataCategory.getAllCategory();
+            res.render('admin/create', {
+                view: {
+                    title: "Admin | Crear producto"
+                },
+                licences: licences.data,
+                categories: categories.data,
+            });
+        } catch(error){
+            console.log(error);
+        }    
+    },
+    create: async (req, res) => {
+        try{
+            
+        } catch(error){
+
         }
-    }),
-    create: (req, res) => res.send('Route for create a product'),
-    updateView: (req, res) => res.render('admin/edit', {
-        view: {
-            title: "Admin | Editar producto"
+    },
+    updateView: async (req, res) => {
+        try{
+            const licences = await datalicence.getAllLicences();
+            const categories = await dataCategory.getAllCategory();
+            res.render('admin/edit', {
+                view: {
+                    title: "Admin | Editar producto"
+                },
+                licences: licences.data,
+                categories: categories.data,
+            });
+        } catch(error){
+            console.log(error);
         }
-    }),
+    },
     update: (req, res) => res.send('Route for edit a product'),
     delete: async (req, res) => {
-
         try {
-            const result = await data.deleteProductById(req.params.id)
-            res.redirect('/admin/productos')
+            const result = await data.deleteProductById(req.params.id);
+            res.redirect('/admin/productos');
         } catch (error) {
             console.log(error);
             res.status(500).send(error);
