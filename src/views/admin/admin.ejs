@@ -1,22 +1,27 @@
 <!--Header section with NavBar-->
 <%- include('../components/general/header-admin.ejs') %>
-<!--Header section with NavBar end-->
+  <!--Header section with NavBar end-->
 
-<!--Main content section-->
-<main>
+  <!--Main content section-->
+  <main>
     <section class="prod-list-wrapper container">
       <div class="prod-list-search-section">
         <label class="prod-list-search-icon" for="search">
           <i class="fa-solid fa-magnifying-glass fa-xl"></i>
         </label>
-        <input type="text" name="buscar" placeholder="código, nombre o categoria"/>
+        <input type="text" name="buscar" placeholder="código, nombre o categoria" />
       </div>
       <div class="prod-list">
         <div class="prod-list-title-section">
           <h1 class="prod-list-title title">LISTADO DE PRODUCTOS</h1>
           <div class="prod-list-add">
             <p class="prod-list-add-label">AGREGAR</p>
-            <button class="prod-list-add-button"><i class="fa-solid fa-plus fa-xl"></i></button>
+            <button class="prod-list-add-button">
+              <a href="/admin/productos/create">
+                <i class="fa-solid fa-plus fa-xl">
+                </i>
+              </a>
+            </button>
           </div>
         </div>
         <div class="prod-list-table-container">
@@ -30,32 +35,44 @@
               </tr>
               <tr class="prod-list-row">
 
-                <% Object.values(collections).forEach(collection => { %>
-                    <td class="prod-list-row-item row-item-added"><%= collection.product_id %></td>
-                    <td class="prod-list-row-item row-item-added"><%= collection.sku %></td>
-                    <td class="prod-list-row-item row-item-added"><%= collection.product_name %></td>
-                    <td class="prod-list-row-item row-item-added"><%= collection.licence.licence_name %></td>
-                    <td class="prod-list-row-item row-item-added">
+                <% Object.values(collections).forEach(collection=> { %>
+                  <td class="prod-list-row-item row-item-added">
+                    <%= collection.product_id %>
+                  </td>
+                  <td class="prod-list-row-item row-item-added">
+                    <%= collection.sku %>
+                  </td>
+                  <td class="prod-list-row-item row-item-added">
+                    <%= collection.product_name %>
+                  </td>
+                  <td class="prod-list-row-item row-item-added">
+                    <%= collection.licence.licence_name %>
+                  </td>
+                  <td class="prod-list-row-item row-item-added">
                     <div class="row-item-added-icons">
-                        <button>
-                        <img src="../images/icons/edit_pencil.svg" alt="lapiz">
+                      <button>
+                        <a href="/admin/productos/<%= collection.product_id %>/edit">
+                          <img src="../images/icons/edit_pencil.svg" alt="lapiz">
+                        </a>
+                      </button>
+                      <form action="/admin/productos/<%= collection.product_id %>?_method=DELETE" method="POST">
+                        <button type="submit">
+                          <img src="../images/icons/delete_trash.svg" alt="basura">
                         </button>
-                        <button>
-                        <img src="../images/icons/delete_trash.svg" alt="basura">
-                        </button>
+                      </form>
                     </div>
-                    </td>
+                  </td>
                   <% }); %>
-                
+
               </tr>
             </tbody>
           </table>
         </div>
       </div>
     </section>
-</main>
-<!--Main content section end-->
+  </main>
+  <!--Main content section end-->
 
-<!--Footer section-->
-<%- include('../components/general/footer-admin.ejs') %>
-<!--Footer section end-->
+  <!--Footer section-->
+  <%- include('../components/general/footer-admin.ejs') %>
+    <!--Footer section end-->
