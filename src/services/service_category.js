@@ -65,3 +65,9 @@ const getCategoryById = async (categoryId) => {
 };
 
 //getCategoryById(1);
+
+
+module.exports = {
+    getAllCategory,
+    getCategoryById,
+}

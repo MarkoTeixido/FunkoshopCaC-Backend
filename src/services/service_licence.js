@@ -65,3 +65,8 @@ const getLicenceById = async (licenceId) => {
 };
 
 //getLicenceById(1);
+
+module.exports = {
+  getAllLicence,
+  getLicenceById,
+}
