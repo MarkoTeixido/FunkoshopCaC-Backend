@@ -68,8 +68,6 @@ const getAllProducts = async () => {
 
 
 // Service product (GET) get one by id
-
-//const productId = 1;
 const getProductById = async (productId) => {
   try {
     const row = await product.findByPk(productId, {
@@ -128,7 +126,7 @@ const getProductById = async (productId) => {
   }
 };
 
-// getProductById(productId);
+// getProductById(1);
 
 
 

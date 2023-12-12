@@ -16,8 +16,8 @@ const licence = sequelize.define('licence', {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    create_time:{
-      type: DataTypes.DATE,
+    licence_image:{
+      type: DataTypes.STRING,
       allowNull: true,
     },
 });

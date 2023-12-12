@@ -50,7 +50,7 @@ const product = sequelize.define("product", {
     type: DataTypes.DATE,
     allowNull: true,
   },
-  licence_id: { //falta solucionar claves foraneas de licence_id y category_id
+  licence_id: {
     type: DataTypes.INTEGER,
     allowNull: true,
   },
