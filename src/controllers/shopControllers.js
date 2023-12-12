@@ -9,15 +9,19 @@ const shopControllers = {
       },
       collections: collections.data
   })},
-  idView: (req, res) =>res.send("Route for find and retrieve a product from the id"),
-  itemView: (req, res, id) => res.render("shop/item", {
-        
-        view: {
-          title: "Item | Funkoshop"
-        },
-        collections: data
-    
-  }),
+  idView: async (req, res) => {
+    const collections = await data.getAllProducts();
+    const id = req.params.id;
+    const productById = await data.getProductById(id);
+    console.log(productById);
+    res.render("shop/item", {
+      view: {
+        title: "Item | Funkoshop"
+      },
+      collections: collections.data,
+      productById: productById.data
+  })},
+  itemView: async (req, res, id) => {},
   cartView: (req, res) => res.render("shop/cart", {
     view: {
       title: "Carrito | Funkoshop"

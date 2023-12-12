@@ -13,8 +13,6 @@ const sequelize = new Sequelize(process.env.DB, process.env.USER, process.env.DB
   },
 });
 
-console.log(sequelize);
-
 // Set async function for testing DB connection
 async function testConnection() {
   try {

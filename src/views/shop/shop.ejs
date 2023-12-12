@@ -64,7 +64,7 @@
         <% Object.values(collections).forEach(collection => { %>
             <!--FunkoPop card-->
             <article class="card">
-                <a class="card-link" href="#">
+                <a class="card-link" href="/shop/item/<%= collection.product_id %>">
                     <figure class="card-image">
                         <span class="card-image-tag">NUEVO</span>
                         <img class="card-image__front" src="<%= collection.image_front %>" alt="<%= collection.product_description %>">
