@@ -5,7 +5,6 @@ require('dotenv').config();
 // Set Sequelize Config
 const sequelize = new Sequelize(process.env.DB, process.env.USER, process.env.DBPASS,{
   host: process.env.HOST,
-  port: process.env.PORT,
   dialect:'mysql',
   dialectModule: mysql2,
   define: {
@@ -13,6 +12,8 @@ const sequelize = new Sequelize(process.env.DB, process.env.USER, process.env.DB
     timestamps: false  // Prevent sequelize don't add the timestamp attributes (updatedAt, createdAt)
   },
 });
+
+console.log(sequelize);
 
 // Set async function for testing DB connection
 async function testConnection() {
