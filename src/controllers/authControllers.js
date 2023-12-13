@@ -1,18 +1,16 @@
-const data = require('../../funkosData.json');
+const dataUser = require('../services/service_user');
 
 const authControllers = {
     loginView: (req, res) => res.render('auth/login', {
         view: {
           title: "Login | Funkoshop"
         },
-        collections: data 
     }),
     loginUser: (req, res) => {},
     registerView: (req, res) => res.render('auth/register', {
         view:{
             title: "Register | Funkoshop"
         },
-        collections: data
     }),
     registerUser: (req, res) => {},
     logoutView: (req, res) => res.send("Route for logout view")
