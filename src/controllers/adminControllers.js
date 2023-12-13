@@ -18,7 +18,7 @@ const adminControllers = {
     },
     createView: async (req, res) => {
         try{
-            const licences = await datalicence.getAllLicences();
+            const licences = await datalicence.getAllLicence();
             const categories = await dataCategory.getAllCategory();
             res.render('admin/create', {
                 view: {
