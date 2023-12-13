@@ -42,7 +42,7 @@ const adminControllers = {
     },
     updateView: async (req, res) => {
         try{
-            const licences = await datalicence.getAllLicences();
+            const licences = await datalicence.getAllLicence();
             const categories = await dataCategory.getAllCategory();
             res.render('admin/edit', {
                 view: {
@@ -58,7 +58,7 @@ const adminControllers = {
     update: (req, res) => res.send('Route for edit a product'),
     delete: async (req, res) => {
         try {
-            const result = await dataProduct.deleteProductById(req.params.id);
+            await dataProduct.deleteProductById(req.params.id);
             res.redirect('/admin/products');
         } catch (error) {
             console.log(error);
