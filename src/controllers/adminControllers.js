@@ -58,7 +58,7 @@ const adminControllers = {
     update: (req, res) => res.send('Route for edit a product'),
     delete: async (req, res) => {
         try {
-            const result = await data.deleteProductById(req.params.id);
+            const result = await dataProduct.deleteProductById(req.params.id);
             res.redirect('/admin/products');
         } catch (error) {
             console.log(error);
