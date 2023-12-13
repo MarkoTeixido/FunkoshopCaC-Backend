@@ -17,7 +17,7 @@
           <div class="prod-list-add">
             <p class="prod-list-add-label">AGREGAR</p>
             <button class="prod-list-add-button">
-              <a href="/admin/productos/create">
+              <a href="/admin/products/create">
                 <i class="fa-solid fa-plus fa-xl">
                 </i>
               </a>
@@ -51,11 +51,11 @@
                   <td class="prod-list-row-item row-item-added">
                     <div class="row-item-added-icons">
                       <button>
-                        <a href="/admin/productos/<%= collection.product_id %>/edit">
+                        <a href="/admin/products/edit/<%= collection.product_id %>">
                           <img src="../images/icons/edit_pencil.svg" alt="lapiz">
                         </a>
                       </button>
-                      <form action="/admin/productos/<%= collection.product_id %>?_method=DELETE" method="POST">
+                      <form action="/admin/products/<%= collection.product_id %>?_method=DELETE" method="POST">
                         <button type="submit">
                           <img src="../images/icons/delete_trash.svg" alt="basura">
                         </button>

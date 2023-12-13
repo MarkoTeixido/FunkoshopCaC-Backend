@@ -33,9 +33,11 @@ const adminControllers = {
     },
     create: async (req, res) => {
         try{
-            
+            const item = req.body;
+            await dataProduct.createProduct(item);
+            res.redirect('/admin/products');
         } catch(error){
-
+            console.log(error);
         }
     },
     updateView: async (req, res) => {
@@ -57,7 +59,7 @@ const adminControllers = {
     delete: async (req, res) => {
         try {
             const result = await data.deleteProductById(req.params.id);
-            res.redirect('/admin/productos');
+            res.redirect('/admin/products');
         } catch (error) {
             console.log(error);
             res.status(500).send(error);

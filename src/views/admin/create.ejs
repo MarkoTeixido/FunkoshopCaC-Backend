@@ -7,35 +7,36 @@
     <section id="section-create__item">
         <h2 class="title-section-create">CREAR NUEVO ITEM</h2>
         <div id="container-form__item">
-            <form action="" method="post" id="formItems">
+            <form action="/admin/products/create" method="post" id="formItems">
 
                 <div>
 
                     <div class="container-form__fields">
                         <label for="category" class="label-create">Categoria:</label>
-                        <select id="category" name="categoria" class="select-createItem">
+                        <select id="category" name="category_id" class="select-createItem">
                             <option disabled selected>Seleccionar</option>
-                            <option value="starWars">Star Wars</option>
-                            <option value="pokemon">Pokemon</option>
-                            <option value="harryPotter">Harry Potter</option>
+                            <% Object.values(licences).forEach(licence=> { %>
+                                <option><%= licence.licence_id %></option>
+                            <% }); %>
                         </select>
 
-                        <label for="license" class="label-create license">Licencia:</label>
-                        <select id="license" name="licencia" class="select-createItem">
+                        <label for="licence" class="label-create licence">Licencia:</label>
+                        <select id="licence" name="licence_id" class="select-createItem">
                             <option disabled selected>Seleccionar</option>
-                            <option value="licenNarutoShippuden">Naruto Shippuden</option>
-                            <option value="licenPokemon">Pokemon</option>
+                            <% Object.values(categories).forEach(category=> { %>
+                                <option><%= category.category_id %></option>
+                            <% }); %>    
                         </select>
                     </div>
 
                     <div class="container-form__fields">
                         <label for="nameProduct" class="label-create">Nombre del producto:</label>
-                        <input type="text" name="nombreProducto" id="nameProduct"
+                        <input type="text" name="product_name" id="nameProduct"
                             placeholder="Kakashi Hatake Shippuden Saga" class="input-create">
                     </div>
 
                     <div class="container-form__fields">
-                        <textarea name="descriProduct" id="descriptionProduct"
+                        <textarea name="product_description" id="descriptionProduct"
                             placeholder="Descripcion del producto" cols=63 rows=10></textarea>
                     </div>
 
@@ -44,7 +45,7 @@
                         <input id="sku" name="sku" type="text" placeholder="SSK111AB001" class="input-create">
 
                         <label for="price" class="label-create">Precio:</label>
-                        <input id="price" name="precio" type="number" placeholder="$0.000,00" class="input-create">
+                        <input id="price" name="price" type="number" placeholder="$0.000,00" class="input-create">
 
                         <label for="stock" class="label-create">Stock:</label>
                         <input id="stock" name="stock" type="number" placeholder="0" class="input-create">
@@ -52,7 +53,7 @@
 
                     <div class="container-form__fields">
                         <label for="discount" class="label-create">Descuento:</label>
-                        <input id="discount" name="descuento" type="number" placeholder="0%" class="input-create">
+                        <input id="discount" name="discount" type="number" placeholder="0%" class="input-create">
 
                         <label for="cuotas" class="label-create">Cuotas:</label>
                         <select id="cuotas" name="cuotas" class="select-createItem">

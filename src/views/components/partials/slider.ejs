@@ -9,7 +9,7 @@
 
                 <% Object.values(collections).forEach(collection => { %>
                     <li class="slider-items">
-                        <a class="card-link" href="/shop/item">
+                        <a class="card-link" href="/shop/item/<%= collection.product_id %>">
                             <figure class="card-image">
                                 <span class="card-image-tag">NUEVO</span>
                                 <img class="card-image__front" src="<%= collection.image_front %>"
