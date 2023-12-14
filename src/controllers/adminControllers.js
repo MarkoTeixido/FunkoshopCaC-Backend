@@ -2,22 +2,24 @@ const dataProduct = require("../services/service_product");
 const datalicence = require("../services/service_licence");
 const dataCategory = require("../services/service_category");
 
+const model = require("../models/model_product")
+
 const adminControllers = {
     index: async (req, res) => {
-        try{
+        try {
             const collections = await dataProduct.getAllProducts();
             res.render('admin/admin', {
                 view: {
                     title: "Admin | Productos"
                 },
                 collections: collections.data,
-            }); 
-        } catch(error){
+            });
+        } catch (error) {
             console.log(error);
         }
     },
     createView: async (req, res) => {
-        try{
+        try {
             const licences = await datalicence.getAllLicence();
             const categories = await dataCategory.getAllCategory();
             res.render('admin/create', {
@@ -27,21 +29,21 @@ const adminControllers = {
                 licences: licences.data,
                 categories: categories.data,
             });
-        } catch(error){
+        } catch (error) {
             console.log(error);
-        }    
+        }
     },
     create: async (req, res) => {
-        try{
+        try {
             const item = req.body;
             await dataProduct.createProduct(item);
             res.redirect('/admin/products');
-        } catch(error){
+        } catch (error) {
             console.log(error);
         }
     },
     updateView: async (req, res) => {
-        try{
+        try {
             const licences = await datalicence.getAllLicence();
             const categories = await dataCategory.getAllCategory();
             const itemId = req.params.id;
@@ -54,7 +56,7 @@ const adminControllers = {
                 categories: categories.data,
                 collections: collections.data,
             });
-        } catch(error){
+        } catch (error) {
             console.log(error);
         }
     },
