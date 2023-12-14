@@ -2,8 +2,6 @@ const dataProduct = require("../services/service_product");
 const datalicence = require("../services/service_licence");
 const dataCategory = require("../services/service_category");
 
-const model = require("../models/model_product")
-
 const adminControllers = {
     index: async (req, res) => {
         try {
