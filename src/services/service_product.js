@@ -183,13 +183,11 @@ const updateProductById = async (productId, updatedDataProduct) => {
       }
   
       // Actualizar los campos del producto con los nuevos valores
-      await existingProduct.update(updatedDataProduct);
-  
-      const updatedDataProduct = await product.findByPk(productId);
+      const updateProduct = await existingProduct.update(updatedDataProduct);
   
       const response = {
         isError: false,
-        data: updatedDataProduct,
+        data: updateProduct,
       };
 
       console.log(JSON.stringify(response, null, 2));

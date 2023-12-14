@@ -44,18 +44,31 @@ const adminControllers = {
         try{
             const licences = await datalicence.getAllLicence();
             const categories = await dataCategory.getAllCategory();
+            const itemId = req.params.id;
+            const collections = await dataProduct.getProductById(itemId);
             res.render('admin/edit', {
                 view: {
                     title: "Admin | Editar producto"
                 },
                 licences: licences.data,
                 categories: categories.data,
+                collections: collections.data,
             });
         } catch(error){
             console.log(error);
         }
     },
-    update: (req, res) => res.send('Route for edit a product'),
+    update: async (req, res) => {
+        try {
+            const newProductId = req.params.id;
+            const newProduct = req.body;
+            await dataProduct.updateProductById(newProductId, newProduct);
+            res.redirect('/admin/products');
+        } catch (error) {
+            console.log(error);
+            res.status(500).send(error);
+        }
+    },
     delete: async (req, res) => {
         try {
             await dataProduct.deleteProductById(req.params.id);
