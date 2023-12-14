@@ -16,7 +16,7 @@
                         <select id="category" name="category_id" class="select-createItem">
                             <option disabled selected>Seleccionar</option>
                             <% Object.values(licences).forEach(licence=> { %>
-                                <option><%= licence.licence_id %></option>
+                                <option value="<%= licence.licence_id %>"><%= licence.licence_name %></option>
                             <% }); %>
                         </select>
 
@@ -24,7 +24,7 @@
                         <select id="licence" name="licence_id" class="select-createItem">
                             <option disabled selected>Seleccionar</option>
                             <% Object.values(categories).forEach(category=> { %>
-                                <option><%= category.category_id %></option>
+                                <option value="<%= category.category_id %>"><%= category.category_name %></option>
                             <% }); %>    
                         </select>
                     </div>
