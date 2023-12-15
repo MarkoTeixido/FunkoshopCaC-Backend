@@ -3,8 +3,6 @@ const { licence } = require('../models/model_licence');
 const { category } = require('../models/model_category');
 
 
-// FALTA TERMINAR Y ACOMODAR
-
 // Service product (GET) get all
 const getAllProducts = async () => {
   try {
@@ -54,17 +52,6 @@ const getAllProducts = async () => {
     return error;
   }
 };
-
-// async function fetchData() {
-//   try {
-//     const result = await getAllProducts();
-//     console.log(JSON.stringify(result, null, 2)); // 2 espacios de indentación para mejor legibilidad
-//   } catch (error) {
-//     console.error(`Error al obtener datos: ${error.message}`);
-//   }
-// }
-
-// fetchData();
 
 
 // Service product (GET) get one by id
@@ -126,9 +113,6 @@ const getProductById = async (productId) => {
   }
 };
 
-// getProductById(1);
-
-
 
 // Service product (POST) create
 async function createProduct(dataProduct) {
@@ -161,9 +145,6 @@ async function createProduct(dataProduct) {
       console.error('Error al crear el producto:', error);
   }
 }
-  
-// Llama a la funcion para probar
-// createProduct();
 
 
 // Service product (PUT) update one by id
@@ -205,9 +186,6 @@ const updateProductById = async (productId, updatedDataProduct) => {
     }
 };
 
-//updateProductById(productId, newDataProduct);
-
-
 
 // Service product (DELETE) delete one by id
 const deleteProductById = async (productId) => {
@@ -248,7 +226,7 @@ const deleteProductById = async (productId) => {
     }
 };
 
-//deleteProductById(productId);
+
 
 module.exports = {
   getAllProducts,
