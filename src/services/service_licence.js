@@ -36,7 +36,7 @@ const getLicenceById = async (licenceId) => {
       if (!row) {
         const error = {
           isError: true,
-          message: `No se encontró ningún producto con el ID ${productId}.`,
+          message: `No se encontró ningún producto con el ID ${licenceId}.`,
         };
   
         console.error(JSON.stringify(error, null, 2));

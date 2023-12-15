@@ -36,7 +36,7 @@ const getCategoryById = async (categoryId) => {
       if (!row) {
         const error = {
           isError: true,
-          message: `No se encontró ningún producto con el ID ${productId}.`,
+          message: `No se encontró ningún producto con el ID ${categoryId}.`,
         };
   
         console.error(JSON.stringify(error, null, 2));

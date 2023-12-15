@@ -24,6 +24,6 @@ const mainControllers = {
     }),
     aboutView: (req, res) => res.send("Route for about view controller"),
     faqsView: (req, res) => res.send("Route for faqs view")
-}
+};
 
 module.exports = mainControllers;

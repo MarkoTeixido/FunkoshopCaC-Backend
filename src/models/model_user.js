@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/conn');
+const bcryptjs = require("bcryptjs");
 
 // Set User Model
 const user = sequelize.define('user', {
@@ -29,5 +30,18 @@ const user = sequelize.define('user', {
         allowNull: true,
     },
 });
+
+user.beforeSave(async (user) => {
+  const { password } = user;
+
+  const hash = await bcryptjs.hash(password, 12);
+
+  user.password = hash;
+});
+
+(async () => {
+  await sequelize.sync();
+})();
+
 
 module.exports = { user };
