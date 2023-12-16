@@ -110,6 +110,26 @@
   max-height: 3.2rem;
 }
 
+.btn-pageAdmin-cancelDelete,.btn-pageAdmin-delete{
+  text-decoration: none;
+  color: white;
+  border: none;
+  padding: 0.7em 1em;
+  font-size: var(--font-xsmall-super);
+  font-family: var(--primary-font);
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0 2px 0 0;
+}
+
+.btn-pageAdmin-cancelDelete{
+  background-color: var(--primary-solid);
+}
+
+.btn-pageAdmin-delete{
+  background-color: green;
+}
+
 
 
 /*---------------*/
