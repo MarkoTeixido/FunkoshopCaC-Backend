@@ -55,7 +55,7 @@
                           <img src="../images/icons/edit_pencil.svg" alt="lapiz">
                         </a>
                       </button>
-                      <form action="/admin/products/delete/<%= collection.product_id %>?_method=DELETE" method="POST">
+                      <form class="form-delete" action="/admin/products/delete/<%= collection.product_id %>?_method=DELETE" method="POST">
                         <button type="submit">
                           <img src="../images/icons/delete_trash.svg" alt="basura">
                         </button>
@@ -72,6 +72,17 @@
     </section>
   </main>
   <!--Main content section end-->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+  <script>
+    Swal.fire({
+      title: 'Error!',
+      text: 'Do you want to continue',
+      icon: 'error',
+      confirmButtonText: 'Cool'
+    })
+
+  </script> -->
 
   <!--Footer section-->
   <%- include('../components/general/footer-admin.ejs') %>
