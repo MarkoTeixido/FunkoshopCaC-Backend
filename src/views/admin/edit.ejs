@@ -1,96 +1,114 @@
 <!--Header section with NavBar-->
 <%- include('../components/general/header-admin.ejs') %>
-<!--Header section with NavBar end-->
+    <!--Header section with NavBar end-->
 
-<!--Main content section-->
-<main class="main-edit">
-    <h1 class="h1-edit">EDITAR ITEM</h1>
+    <!--Main content section-->
+    <main class="main-edit">
+        <h1 class="h1-edit">EDITAR ITEM</h1>
 
-    <form action="/admin/products/edit/<%= collections.product_id %>?_method=PUT" method="post">
-        <div class="edit-tipo">
-            <div>
-                <label for="categoria">Categoría:</label>
-                <select class="edit-valu" style="cursor: pointer" name="category_id">
-                    <% Object.values(categories).forEach(category=> { %>
-                        <option value="<%= category.category_id %>"><%= category.category_name %></option>
-                    <% }); %>
+        <form action="/admin/products/edit/<%= collections.product_id %>?_method=PUT" method="post">
+            <div class="edit-tipo">
+                <div>
+                    <label for="categoria">Categoría:</label>
+                    <select class="edit-valu" style="cursor: pointer" name="category_id" required>
+                        <option disabled>Seleccionar</option>
+                        <% categories.forEach(category=> { %>
+                            <option value="<%= category.category_id %>" <%=category.category_id==collections.category_id
+                                ? "selected" : "" %> >
+                                <%= category.category_name %>
+                            </option>
+                            <% }); %>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="licencia">Licencia:</label>
+                    <select class="edit-valu" style="cursor: pointer" name="licence_id" required>
+                        <option disabled>Seleccionar</option>
+                        <% licences.forEach(licence=> { %>
+                            <option value="<%= licence.licence_id %>" <%=licence.licence_id==collections.licence_id
+                                ? "selected" : "" %> >
+                                <%= licence.licence_name %>
+                            </option>
+                            <% }); %>
+                    </select>
+                </div>
+            </div>
+
+            <div class="edit-tipo">
+                <label for="nombre-producto">Nombre del producto:</label>
+                <input class="edit-product" name="product_name" type="text" id="nombre-producto"
+                    value="<%= typeof collections != 'undefined' ? collections.product_name : '' %>" required />
+            </div>
+
+            <div class="text-edit">
+                <textarea class="edit-text" name="product_description" rows="6" cols="80"
+                    placeholder="Descripción del producto"
+                    required><%= typeof collections != 'undefined' ? collections.product_description : '' %></textarea>
+            </div>
+
+
+            <div class="edit-tipo">
+                <div>
+                    <label for="sku">SKU:</label>
+                    <input class="edit-sps" name="sku" type="text" id="sku"
+                        value="<%= typeof collections != 'undefined' ? collections.sku : '' %>" required />
+                </div>
+
+                <div>
+                    <label for="precio">Precio:</label>
+                    <input class="edit-sps" name="price" type="text" id="precio"
+                        value="<%= typeof collections != 'undefined' ? collections.price : '' %>" required />
+                </div>
+
+                <div>
+                    <label for="stock">Stock:</label>
+                    <input class="edit-sps" name="stock" type="text" id="stock"
+                        value="<%= typeof collections != 'undefined' ? collections.stock : '' %>" required />
+                </div>
+            </div>
+
+            <div class="edit-tipo">
+                <div>
+                    <label for="descuento">Descuento:</label>
+                    <input class="descuento" name="discount" type="text" id="descuento"
+                        value="<%= typeof collections != 'undefined' ? collections.discount : '' %>" required />
+                </div>
+
+                <label for="cuotas">Cuotas:</label>
+                <select class="edit-dc" name="cuotas" id="cuotas" required>
+                    <option value="numero-cuotas">3 Cuotas sin interés</option>
+                    <option value="numero-cuotas">6 Cuotas sin interés</option>
+                    <option value="numero-cuotas">12 Cuotas sin interés</option>
                 </select>
             </div>
-    
-            <div>
-                <label for="licencia">Licencia:</label>
-                <select class="edit-valu" style="cursor: pointer" name="licence_id">
-                    <% Object.values(licences).forEach(licence=> { %>
-                        <option value="<%= licence.licence_id %>"><%= licence.licence_name %></option>
-                    <% }); %>
-                </select>
-            </div> 
-        </div>
-    
-        <div class="edit-tipo">
-            <label for="nombre-producto">Nombre del producto:</label> 
-            <input class="edit-product" name="product_name" type="text" id="nombre-producto" />
-        </div>
-    
-        <div class="text-edit">
-            <textarea class="edit-text" name="product_description" rows="6" cols="80" placeholder="Descripción del producto"></textarea>
-        </div>
-    
-        
-        <div class="edit-tipo">
-            <div>   
-                <label for="sku">SKU:</label> 
-                <input class="edit-sps" name="sku" type="text" id="sku" />
+
+            <div class="edit-tipo">
+                <label for="imagenes">Imágenes:</label>
+                <input class="edit-file " type="file" id="imagenes">
             </div>
-            
-            <div>
-                <label for="precio">Precio:</label> 
-                <input class="edit-sps" name="price" type="text" id="precio" />
+
+            <div class="container-card">
+                <section class="card-edit">
+                    <img class="img-edit" src="<%= typeof collections != 'undefined' ? collections.image_front : '' %>"
+                        alt="Figura coleccionable funko - <%= typeof collections != 'undefined' ? collections.product_name : '' %>">
+                    <p class="p-carga">Frente</p>
+                </section>
+
+                <section class="card-edit">
+                    <img class="img-edit" src="<%= typeof collections != 'undefined' ? collections.image_back : '' %>"
+                        alt="Figura coleccionable funko - <%= typeof collections != 'undefined' ? collections.product_name : '' %>">
+                    <p class="p-carga">Dorso</p>
+                </section>
             </div>
-    
-            <div>
-                <label for="stock">Stock:</label> 
-                <input class="edit-sps" name="stock" type="text" id="stock" />
-            </div>
-        </div>
-    
-        <div class="edit-tipo">
-            <div>
-                <label for="descuento">Descuento:</label> 
-                <input class="descuento" name="discount" type="text" id="descuento" />
-            </div>
-    
-            <label for="cuotas">Cuotas:</label>
-            <select class="edit-dc" name="cuotas" id="cuotas">
-                <option value="numero-cuotas">3 Cuotas sin interés</option>
-                <option value="numero-cuotas">6 Cuotas sin interés</option>
-                <option value="numero-cuotas">12 Cuotas sin interés</option>
-            </select>
-        </div>
-    
-        <div class="edit-tipo">
-            <label for="imagenes">Imágenes:</label>
-            <input class="edit-file " type="file" id="imagenes">
-        </div>
-    
-        <div class="container-card">
-            <section class="card-edit">
-                <img class="img-edit" src="/images/naruto/kakashi_hatake_front.webp" alt="Figura coleccionable funko - Kakashi">
-                <p class="p-carga">Frente</p>
-                <input class="button-mod" type="submit" style="cursor:pointer" value="Modificar Producto">
-            </section>
-    
-            <section class="card-edit">
-                <img class="img-edit" src="/images/naruto/kakashi_hatake_back.webp" alt="Figura coleccionable funko - Kakashi Box">
-                <p class="p-carga">Dorso</p>
-            </section>
-        </div>
-    </form>
-    
-</main>
-<!--Main content section end-->
+
+            <input class="button-mod" type="submit" style="cursor:pointer" value="Modificar Producto">
+        </form>
+
+    </main>
+    <!--Main content section end-->
 
 
-<!--Footer section-->
-<%- include('../components/general/footer-admin.ejs') %>
-<!--Footer section end-->
+    <!--Footer section-->
+    <%- include('../components/general/footer-admin.ejs') %>
+        <!--Footer section end-->
