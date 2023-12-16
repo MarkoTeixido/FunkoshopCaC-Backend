@@ -1,4 +1,4 @@
-const dataUser = require('../services/service_user');
+const dataUser = require('../models/model_user');
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
 
@@ -66,7 +66,7 @@ const authControllers = {
           const user = await dataUser.createUser(req.body);
       
           console.log(req.body, user);
-          res.send("Registrado");
+          res.redirect("/admin/products");
         } catch (error) {
           console.log(error);
           res.send(error);

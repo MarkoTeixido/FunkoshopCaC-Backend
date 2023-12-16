@@ -30,7 +30,7 @@ const getAllUser = async () => {
 // Service user (GET) get one by id
 const getUserById = async (userId) => {
     try {
-      const row = await user.findByPk(categoryId);
+      const row = await user.findByPk(userId);
   
       if (!row) {
         const error = {

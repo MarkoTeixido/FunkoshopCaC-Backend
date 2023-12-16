@@ -1,5 +1,5 @@
 const { body } = require("express-validator");
-const userModel = require("../models/model_user");
+const { model } = require("../models/model_user");
 
 const registerValidations = [
     body("email")
@@ -9,7 +9,7 @@ const registerValidations = [
       .custom((value, { req }) => {
         return new Promise(async (resolve, reject) => {
           try {
-            const user = await userModel.findOne({
+            const user = await model.findOne({
               where: {
                 email: value,
               },
