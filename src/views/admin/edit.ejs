@@ -83,11 +83,17 @@
                 </select>
             </div>
 
-            <div class="edit-tipo">
+            <!-- <div class="edit-tipo">
                 <label for="imagenes">Imágenes:</label>
                 <input class="edit-file " type="file" id="imagenes">
-            </div>
+            </div> -->
 
+            <label for="image_front" class="label-create">Imagen Principal:</label>
+            <input type="url" name="image_front" id="image_front" value="<%= typeof collections != 'undefined' ? collections.image_front : '' %>">
+
+            <label for="image_back" class="label-create">Imagen Secundaria:</label>
+            <input type="url" name="image_back" id="image_back" value="<%= typeof collections != 'undefined' ? collections.image_back : '' %>">
+            
             <div class="container-card">
                 <section class="card-edit">
                     <img class="img-edit" src="<%= typeof collections != 'undefined' ? collections.image_front : '' %>"
