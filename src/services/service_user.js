@@ -1,4 +1,4 @@
-const { user } = require('../models/model_user');
+const  user  = require('../models/model_user');
 
 
 // Service user (GET) get all
@@ -67,6 +67,7 @@ const getUserById = async (userId) => {
 // Service user (GET) create
 async function createUser(userData) {
     try {
+      console.log("estas creando usuario en createUser");
       const createdUser = await user.create({
         name: userData.name,
         lastname: userData.lastname,

@@ -1,4 +1,5 @@
 const dataUser = require('../models/model_user');
+const userService = require('../services/service_user');
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
 
@@ -48,29 +49,39 @@ const authControllers = {
         }
     },
     registerView: (req, res) => res.render('auth/register', {
-        view:{
-            title: "Register | Funkoshop"
-        },
+      view:{
+          title: "Register | Funkoshop"
+      },
     }),
     registerUser: async (req, res) => {
-        const errors = validationResult(req);
+      console.log("estas validando datos del usuario");
+      const errors = validationResult(req);
+      console.log("terminaste la validacion de datos del usuario");
+
       
-        if (!errors.isEmpty()) {
-          return res.render("auth/register", {
-            values: req.body,
-            errors: errors.array(),
-          });
-        }
       
-        try {
-          const user = await dataUser.createUser(req.body);
+      console.log("comprobando si no hay errores");
+      if (!errors.isEmpty()) {
+        return errors.array().forEach(error => {
+          console.log("Campo:", error.param);
+          console.log("Mensaje:", error.msg);
+          console.log("Valor proporcionado:", error.value);
+          console.log("-----------");
+        });
+      };
       
-          console.log(req.body, user);
-          res.redirect("/admin/products");
-        } catch (error) {
-          console.log(error);
-          res.send(error);
-        }
+      console.log("terminó comprobación de errores");
+    
+      try {
+        console.log("estas en authcontroller intentando crear usuario en createUser");
+        const user = await userService.createUser(req.body);
+    
+        console.log(req.body, user);
+        res.redirect("/admin/products");
+      } catch (error) {
+        console.log(error);
+        res.send(error);
+      }
     },
     logoutView: (req, res) => res.send("Route for logout view")
 };

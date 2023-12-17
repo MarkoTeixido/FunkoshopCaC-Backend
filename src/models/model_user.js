@@ -45,4 +45,4 @@ user.beforeSave(async (user) => {
 })();
 
 
-module.exports = { user };
+module.exports =  user ;
