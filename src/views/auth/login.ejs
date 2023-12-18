@@ -4,9 +4,9 @@
             <h2 class="login-title title">INGRESAR A MI CUENTA</h2>
 
             <% if (typeof errors != 'undefined') { %>
-                <ul>
+                <ul class="req-messages">
                   <% errors.forEach(error => { %>
-                  <li>Error: <%= error.msg %></li>
+                  <li class="req-messages__error">Error: <%= error.msg %></li>
                   <% }) %>
                 </ul>
             <% } %>

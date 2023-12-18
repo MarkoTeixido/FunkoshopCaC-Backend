@@ -1,70 +1,81 @@
 <!--Header section with NavBar-->
 <%- include('../components/general/header-admin.ejs') %>
-    <!--Header section with NavBar end-->
+<!--Header section with NavBar end-->
 
 <!--Main content section-->
 <main>
-    <section id="section-create__item">
-        <h2 class="title-section-create">CREAR NUEVO ITEM</h2>
-        <div id="container-form__item">
+    <section class="create-wrapper container">
+        <h2 class="title">CREAR NUEVO ITEM</h2>
+        <div id="container-form">
             <% if (typeof errors != 'undefined') { %>
-                <ul>
+                <ul class="req-messages">
                   <% errors.forEach(error => { %>
-                  <li>ERROR: <%= error.msg %></li>
+                  <li class="req-messages__error">ERROR: <%= error.msg %></li>
                   <% }) %>
                 </ul>
             <% } %>
 
-            <form action="/admin/products/create" method="post" id="formItems" class="form-create">
+            <form action="/admin/products/create" method="post" class="container-form__create">
 
+                <div class="container-form__fields fields__category-licence">
                     <div>
-
-                    <div class="container-form__fields">
                         <label for="category" class="label-create">Categoria*:</label>
                         <select id="category" name="category_id" class="select-createItem" required>
-                            <option disabled selected>Seleccionar</option>
-                            <% Object.values(licences).forEach(licence=> { %>
-                                <option value="<%= licence.licence_id %>"><%= licence.licence_name %></option>
-                            <% }); %>
+                        <option disabled selected>Seleccionar</option>
+                        <% Object.values(licences).forEach(licence=> { %>
+                            <option value="<%= licence.licence_id %>"><%= licence.licence_name %></option>
+                        <% }); %>
                         </select>
-
+                    </div>
+                    
+                    <div>
                         <label for="licence" class="label-create licence">Licencia*:</label>
                         <select id="licence" name="licence_id" class="select-createItem" required>
-                            <option disabled selected>Seleccionar</option>
-                            <% Object.values(categories).forEach(category=> { %>
-                                <option value="<%= category.category_id %>"><%= category.category_name %></option>
-                            <% }); %>    
+                        <option disabled selected>Seleccionar</option>
+                        <% Object.values(categories).forEach(category=> { %>
+                            <option value="<%= category.category_id %>"><%= category.category_name %></option>
+                        <% }); %>    
                         </select>
                     </div>
+                </div>
 
-                    <div class="container-form__fields">
-                        <label for="nameProduct" class="label-create">Nombre del producto*:</label>
-                        <input type="text" name="product_name" id="nameProduct"
-                            placeholder="Kakashi Hatake Shippuden Saga" class="input-create" required>
-                    </div>
+                <div class="container-form__fields fields__productName">
+                    <label for="nameProduct" class="label-create">Nombre del producto*:</label>
+                    <input type="text" name="product_name" id="nameProduct"
+                        placeholder="Kakashi Hatake Shippuden Saga" class="input-create input-create__productName" required>
+                </div>
 
-                    <div class="container-form__fields">
-                        <textarea name="product_description" id="descriptionProduct"
-                            placeholder="Descripcion del producto" cols=63 rows=10 required></textarea>
-                    </div>
+                <div class="container-form__fields">
+                    <textarea name="product_description" id="descriptionProduct"
+                        placeholder="Descripcion del producto" class="textarea-create" cols=63 rows=10 required></textarea>
+                </div>
 
-                    <div class="container-form__fields">
+                <div class="container-form__fields fields__sku-price-stock">
+                    <div>
                         <label for="sku" class="label-create">SKU*:</label>
-                        <input id="sku" name="sku" type="text" placeholder="SSK111AB001" class="input-create" required>
-
+                        <input id="sku" name="sku" type="text" placeholder="SSK111AB001" class="input-create input-create__sku" required>
+                    </div>
+                    
+                    <div>
                         <label for="price" class="label-create">Precio*:</label>
-                        <input id="price" name="price" type="number" placeholder="$0.000,00" class="input-create" min="0" required>
-
+                        <input id="price" name="price" type="number" placeholder="$0.000,00" class="input-create input-create__price" min="0" required>
+                    </div>
+                    
+                    <div>
                         <label for="stock" class="label-create">Stock*:</label>
-                        <input id="stock" name="stock" type="number" placeholder="0" class="input-create" min="0" required>
+                        <input id="stock" name="stock" type="number" placeholder="0" class="input-create input-create__stock" min="0" required>
+                    </div> 
+                </div>
+
+                <div class="container-form__fields fields__discount-cuotas">
+                    <div>
+                        <label for="discount" class="label-create">Descuento:</label>
+                        <input id="discount" name="discount" type="number" placeholder="0%" min="0" class="input-create input-create__discount">
                     </div>
 
-                    <div class="container-form__fields">
-                        <label for="discount" class="label-create">Descuento:</label>
-                        <input id="discount" name="discount" type="number" placeholder="0%" class="input-create">
-
+                    <div>
                         <label for="cuotas" class="label-create">Cuotas:</label>
-                        <select id="cuotas" name="cuotas" class="select-createItem">
+                        <select id="cuotas" name="cuotas" class="select-createItem select-createItem__cuotas">
                             <option selected>3 Cuotas sin interes</option>
                             <option value="sinCoutas">Sin Cuotas</option>
                             <option value="seisCuotas">6 Cuotas sin interes</option>
@@ -73,34 +84,29 @@
                             <option value="veintiCuatroCuotas">24 Cuotas sin interes</option>
                         </select>
                     </div>
+                </div>
 
-                        <!-- <label for="image" class="label-create">Imágenes:</label>
-                    <input type="file" name="image" id="image" accept="image/*" multiple> -->
-                    <div class="container-form__fields">
-                        <label for="image_front" class="label-create">Imagen Principal*:</label>
-                        <input type="url" name="image_front" id="image_front" placeholder="Ingrese la url de la imagen" required>
-    
-                        <label for="image_back" class="label-create">Imagen Secundaria*:</label>
-                        <input type="url" name="image_back" id="image_back" placeholder="Ingrese la url de la imagen" required>
-                    </div>
-
-
-                    <div class="container-btns">
-
-                        <button type="submit" class="btns-pageCrear btn-CrearProducto">Agregar Producto</button>
-
-                        <button type="reset" class="btns-pageCrear">Limpiar</button>
-                    </div>
-
+                <div class="container-form__fields fields__images">
                     <div>
-                        <p class="warnings" id="warnings"></p>
+                        <label for="image_front" class="label-create">Imagen Principal*:</label>
+                        <input type="url" name="image_front" id="image_front" class="input-create_images" placeholder="Ingrese la url de la imagen" required>
                     </div>
-                </form>
-            </div>
-        </section>
-    </main>
-    <!--Main content section end-->
+                    <div>
+                        <label for="image_back" class="label-create">Imagen Secundaria*:</label>
+                        <input type="url" name="image_back" id="image_back" class="input-create_images" placeholder="Ingrese la url de la imagen" required>
+                    </div>
+                </div>
 
-    <!--Footer section-->
-    <%- include('../components/general/footer-admin.ejs') %>
-        <!--Footer section end-->
+                <div class="container-btns">
+                    <button type="submit" class="buttons-create">Agregar Producto</button>
+                    <button type="reset" class="buttons-create">Limpiar</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+<!--Main content section end-->
+
+<!--Footer section-->
+<%- include('../components/general/footer-admin.ejs') %>
+<!--Footer section end-->

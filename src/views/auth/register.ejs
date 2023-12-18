@@ -6,9 +6,9 @@
                 <p class="register__subtitle">Completa el formulario para ser parte del mundo de los Funkos</p>
             </div>
             <% if (typeof errors != 'undefined') { %>
-                <ul>
+                <ul class="req-messages">
                   <% errors.forEach(error => { %>
-                  <li>ERROR: <%= error.msg %></li>
+                  <li class="req-messages__error">ERROR: <%= error.msg %></li>
                   <% }) %>
                 </ul>
             <% } %>

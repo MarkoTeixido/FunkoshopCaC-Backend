@@ -7,9 +7,9 @@
         <h1 class="h1-edit">EDITAR ITEM</h1>
 
         <% if (typeof errors != 'undefined') { %>
-            <ul>
+            <ul class="req-messages">
               <% errors.forEach(error => { %>
-              <li>ERROR: <%= error.msg %></li>
+              <li class="req-messages__error">ERROR: <%= error.msg %></li>
               <% }) %>
             </ul>
         <% } %>

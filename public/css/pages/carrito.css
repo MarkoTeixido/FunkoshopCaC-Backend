@@ -92,6 +92,7 @@
 
 .cart-item-input-buttons button:hover{
     background-color: rgba(230, 0, 0, 0.9);
+    transition: background .2s ease-in-out;
 }
 
 .cart-item-selected p{

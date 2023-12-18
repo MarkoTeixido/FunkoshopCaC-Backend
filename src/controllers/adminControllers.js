@@ -103,9 +103,23 @@ const adminControllers = {
         }
     },
     delete: async (req, res) => {
+        const errors = validationResult(req);
+        const collections = await dataProduct.getAllProducts();
+        
+        if (!errors.isEmpty()) {
+            return res.render('admin/products', {
+                view: {
+                    title: "Admin | Productos"
+                },
+                collections: collections.data,
+                values: req.body,
+                errors: errors.array(),
+            });
+        }
+
         try {
             await dataProduct.deleteProductById(req.params.id);
-            res.redirect('/admin/products');
+            console.log(req.body);
         } catch (error) {
             console.log(error);
             res.status(500).send(error);

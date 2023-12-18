@@ -1,54 +1,207 @@
-#section-create__item {
-    margin-left: 12%;
+/* Create style */
+.create-wrapper {
+    padding: var(--spacing-28) var(--spacing-128);
 }
 
-.title-section-create {
-    font-family: var(--secondary-font);
-    font-size: var(--font-large);
-    margin: 1.5% 0;
-
+.container-form__create {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: var(--spacing-8);
 }
 
 .container-form__fields {
-    margin-bottom: 2%;
+    width: 100%;
+    font-family: var(--primary-font);
+    font-size: var(--font-medium);
+    padding: var(--spacing-12) 0 0;   
 }
 
-.label-create {
-    font-family: var(--primary-font);
-    font-size: var(--font-small);
-    margin-bottom: 11%;
+.fields__category-licence {
+    display: flex;
+    gap: 2rem;
+}
+
+.fields__category-licence div{
+    display: flex;
+    gap: .5rem;
+}
+
+.fields__productName input{
+    width: 25%;
+}
+
+.fields__sku-price-stock {
+    max-width: 60%;
+    display: flex;
+}
+
+.fields__sku-price-stock div {
+    display: flex;
+}
+
+.fields__sku-price-stock div:first-child input {
+    width: 55%;
+}
+
+.fields__sku-price-stock div:nth-child(2) input {
+    width: 45%;
+}
+
+.fields__sku-price-stock div:last-child input {
+    width: 20%;
+}
+
+.fields__sku-price-stock div:last-child input {
+    text-align: center;
+}
+
+.fields__discount-cuotas {
+    display: flex;
+    gap: 1rem;
+}
+
+.fields__discount-cuotas div {
+    display: contents;
+    gap: 0;
+}
+
+.fields__discount-cuotas div input {
+    width: 10%;
+}
+
+.fields__discount-cuotas div input::placeholder {
+    text-align: center;
+}
+
+.fields__images {
+    display: flex;
+    gap: 1rem;
+}
+
+.fields__images input {
+    padding: .4em .2em;
+    border: 1px solid var(--dark-background-solid);
+    border-radius: 2px;
 }
 
 .input-create {
+    font-family: var(--primary-font);
+    font-size: 1em;
     border: none;
-    border-bottom: 2px solid red;
+    border-bottom: 3px solid red;
     outline: none;
 }
 
+.textarea-create {
+    font-family: var(--primary-font);
+    font-size: 1em;
+    padding: var(--spacing-8);
+    max-width: 100%;
+}
+
 .select-createItem {
+    font-family: var(--primary-font);
+    font-size: .8em;
+    padding: 0 var(--spacing-28);
     border: 2px solid var(--dark-background-solid);
     border-radius: 5px;
-    margin-left: 1%;
-    font-family: var(--primary-font);
 }
 
-.license {
-    margin-left: 5%;
-}
-
-.btns-pageCrear {
+.buttons-create {
     text-decoration: none;
     background-color: var(--primary-solid);
-    color: white;
+    color: #ffffff;
     border: none;
-    padding: 0.7em 1.5em;
-    font-size: var(--font-xsmall-super);
+    padding: var(--spacing-8) var(--spacing-16);
+    font-size: var(--font-xsmall);
     font-family: var(--primary-font);
     cursor: pointer;
 }
 
+.buttons-create:hover {
+    background-color: rgba(230, 0, 0, 0.9);
+    transition: background .2s ease-in-out;
+}
+
 .container-btns {
     display: flex;
-    gap: 2%;
-    margin: 3% 0;
+    gap: 2rem;
 }
+
+/* Create style end */
+
+/*---------------*/
+/*  Responsive  */
+/*--------------*/
+
+/* Phone and Tablet */
+
+@media screen and (max-width:1000px) {
+    .create-wrapper {
+        padding: var(--spacing-16) var(--spacing-24);
+    }
+}
+
+@media screen and (max-width:900px) {
+    .fields__sku-price-stock {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .fields__sku-price-stock div {
+        gap: 1rem;
+    }
+
+    .fields__sku-price-stock div input::placeholder{
+        text-align: center;
+    }
+
+    .fields__discount-cuotas {
+        flex-direction: column;
+    }
+
+    .fields__discount-cuotas div {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .fields__images {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .fields__category-licence {
+        flex-direction: column;
+    }
+
+    .fields__category-licence div {
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .fields__productName {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .fields__productName input{
+        width: 80%;
+    }
+
+    .fields__sku-price-stock div input {
+        min-width: 50%;
+    }
+
+}
+
+@media screen and (max-width:400px) {
+    .create-wrapper {
+        padding: var(--spacing-12) var(--spacing-16);
+    }
+}
+
+/* Phone and Tablet end*/

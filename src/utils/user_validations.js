@@ -2,6 +2,12 @@ const { body } = require("express-validator");
 const model = require("../models/model_user");
 
 const registerValidations = [
+    body("name")
+      .notEmpty()
+      .withMessage("Ingrese un nombre válido."),
+    body("lastname")
+      .notEmpty()
+      .withMessage("Ingrese un apellido válido."),
     body("email")
       .isEmail()
       .withMessage("Ingrese una dirección de correo electrónico válida.")
@@ -39,6 +45,9 @@ const registerValidations = [
       .bail()
       .custom((value, { req }) => value === req.body.password_confirmation)
       .withMessage("Las contraseñas no coinciden."),
+    body("password_confirmation")
+      .notEmpty()
+      .withMessage("Debe ingresar nuevamente su contraseña para confirmación.")
 ];
   
 const loginValidations = [

@@ -1,0 +1,19 @@
+.req-messages{
+    margin: var(--spacing-12) 0;
+    padding: var(--spacing-12) 0;
+    font-family: var(--primary-font);
+    font-size: var(--font-xsmall);
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.req-messages li {
+    border-radius: 3px;
+    padding: 0 .4rem;
+}
+
+.req-messages__error {
+    background-color: var(--primary-300);
+}
