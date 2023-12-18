@@ -31,8 +31,4 @@ document.addEventListener("click", (event) => {
             }
         });
     }
-<<<<<<< HEAD
 });
-=======
-})
->>>>>>> 61bb3a10387ba8474b6781f7c0d19eda59d41c05
