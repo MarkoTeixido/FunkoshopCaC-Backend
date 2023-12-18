@@ -6,6 +6,14 @@
     <main class="main-edit">
         <h1 class="h1-edit">EDITAR ITEM</h1>
 
+        <% if (typeof errors != 'undefined') { %>
+            <ul>
+              <% errors.forEach(error => { %>
+              <li>ERROR: <%= error.msg %></li>
+              <% }) %>
+            </ul>
+        <% } %>
+
         <form action="/admin/products/edit/<%= collections.product_id %>?_method=PUT" method="post">
             <div class="edit-tipo">
                 <div>
@@ -13,11 +21,8 @@
                     <select class="edit-valu" style="cursor: pointer" name="category_id" required>
                         <option disabled>Seleccionar</option>
                         <% categories.forEach(category=> { %>
-                            <option value="<%= category.category_id %>" <%=category.category_id==collections.category_id
-                                ? "selected" : "" %> >
-                                <%= category.category_name %>
-                            </option>
-                            <% }); %>
+                            <option value="<%= category.category_id %>"> <%= category.category_name %> </option>
+                        <% }); %>
                     </select>
                 </div>
 
@@ -26,11 +31,8 @@
                     <select class="edit-valu" style="cursor: pointer" name="licence_id" required>
                         <option disabled>Seleccionar</option>
                         <% licences.forEach(licence=> { %>
-                            <option value="<%= licence.licence_id %>" <%=licence.licence_id==collections.licence_id
-                                ? "selected" : "" %> >
-                                <%= licence.licence_name %>
-                            </option>
-                            <% }); %>
+                            <option value="<%= licence.licence_id %>"> <%= licence.licence_name %> </option>
+                        <% }); %>
                     </select>
                 </div>
             </div>
@@ -38,7 +40,7 @@
             <div class="edit-tipo">
                 <label for="nombre-producto">Nombre del producto:</label>
                 <input class="edit-product" name="product_name" type="text" id="nombre-producto"
-                    value="<%= typeof collections != 'undefined' ? collections.product_name : '' %>" required />
+                    value="<%= typeof collections != 'undefined' ? collections.product_name : '' %>" required>
             </div>
 
             <div class="text-edit">
@@ -52,19 +54,19 @@
                 <div>
                     <label for="sku">SKU:</label>
                     <input class="edit-sps" name="sku" type="text" id="sku"
-                        value="<%= typeof collections != 'undefined' ? collections.sku : '' %>" required />
+                        value="<%= typeof collections != 'undefined' ? collections.sku : '' %>" required>
                 </div>
 
                 <div>
                     <label for="precio">Precio:</label>
                     <input class="edit-sps" name="price" type="text" id="precio"
-                        value="<%= typeof collections != 'undefined' ? collections.price : '' %>" required />
+                        value="<%= typeof collections != 'undefined' ? collections.price : '' %>" required>
                 </div>
 
                 <div>
                     <label for="stock">Stock:</label>
                     <input class="edit-sps" name="stock" type="text" id="stock"
-                        value="<%= typeof collections != 'undefined' ? collections.stock : '' %>" required />
+                        value="<%= typeof collections != 'undefined' ? collections.stock : '' %>" required>
                 </div>
             </div>
 
@@ -72,7 +74,7 @@
                 <div>
                     <label for="descuento">Descuento:</label>
                     <input class="descuento" name="discount" type="text" id="descuento"
-                        value="<%= typeof collections != 'undefined' ? collections.discount : '' %>" required />
+                        value="<%= typeof collections != 'undefined' ? collections.discount : '' %>" required>
                 </div>
 
                 <label for="cuotas">Cuotas:</label>
@@ -89,10 +91,10 @@
             </div> -->
 
             <label for="image_front" class="label-create">Imagen Principal:</label>
-            <input type="url" name="image_front" id="image_front" value="<%= typeof collections != 'undefined' ? collections.image_front : '' %>">
+            <input type="url" name="image_front" id="image_front" value="<%= typeof collections != 'undefined' ? collections.image_front : '' %>" required>
 
             <label for="image_back" class="label-create">Imagen Secundaria:</label>
-            <input type="url" name="image_back" id="image_back" value="<%= typeof collections != 'undefined' ? collections.image_back : '' %>">
+            <input type="url" name="image_back" id="image_back" value="<%= typeof collections != 'undefined' ? collections.image_back : '' %>" required>
             
             <div class="container-card">
                 <section class="card-edit">

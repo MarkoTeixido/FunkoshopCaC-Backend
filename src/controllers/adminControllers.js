@@ -1,6 +1,7 @@
 const dataProduct = require("../services/service_product");
 const datalicence = require("../services/service_licence");
 const dataCategory = require("../services/service_category");
+const { validationResult } = require("express-validator");
 
 const adminControllers = {
     index: async (req, res) => {
@@ -32,6 +33,22 @@ const adminControllers = {
         }
     },
     create: async (req, res) => {
+        const errors = validationResult(req);
+        const licences = await datalicence.getAllLicence();
+        const categories = await dataCategory.getAllCategory();
+      
+        if (!errors.isEmpty()) {
+          return res.render("admin/create", {
+            view:{
+              title: "Admin | Crear Producto"
+            },
+            licences: licences.data,
+            categories: categories.data,
+            values: req.body,
+            errors: errors.array(),
+          });
+        }
+
         try {
             const item = req.body;
             await dataProduct.createProduct(item);
@@ -59,6 +76,22 @@ const adminControllers = {
         }
     },
     update: async (req, res) => {
+        const errors = validationResult(req);
+        const licences = await datalicence.getAllLicence();
+        const categories = await dataCategory.getAllCategory();
+      
+        if (!errors.isEmpty()) {
+          return res.render("admin/edit", {
+            view:{
+              title: "Admin | Editar Producto"
+            },
+            licences: licences.data,
+            categories: categories.data,
+            values: req.body,
+            errors: errors.array(),
+          });
+        }
+
         try {
             const newProductId = req.params.id;
             const newProduct = req.body;
