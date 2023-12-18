@@ -46,8 +46,8 @@
             <div class="text-edit">
                 <textarea class="edit-text" name="product_description" rows="6" cols="80"
                     placeholder="Descripción del producto"
-                    required><%= typeof collections != 'undefined' ? collections.product_description : '' %></textarea>
-            </div>
+                    required data-tipo="descripcion"><%= typeof collections != 'undefined' ? collections.product_description : '' %></textarea>
+                </div>
 
 
             <div class="edit-tipo">
@@ -82,6 +82,8 @@
                     <option value="numero-cuotas">3 Cuotas sin interés</option>
                     <option value="numero-cuotas">6 Cuotas sin interés</option>
                     <option value="numero-cuotas">12 Cuotas sin interés</option>
+                    <option value="dieciOchoCuotas">18 Cuotas sin interes</option>
+                    <option value="veintiCuatroCuotas">24 Cuotas sin interes</option>
                 </select>
             </div>
 
