@@ -15,7 +15,7 @@ const productValidations = [
     .withMessage("Se requiere una descripción para el producto"),
     body("sku")
     .isAlphanumeric()
-    .withMessage("El SKU solo puede incluir numeros o letras (no símbolos")
+    .withMessage("El SKU solo puede incluir numeros o letras (no símbolos)")
     .matches(/^(?=(?:.*[A-Za-z]){3})(?=(?:.*[0-9]){3})[A-Za-z0-9]+$/)
     .withMessage("El SKU mínimo debe incluir 3 letras y 3 números")
     .notEmpty()
