@@ -10,7 +10,7 @@
             <div class="edit-tipo">
                 <div>
                     <label for="categoria">Categoría:</label>
-                    <select class="edit-valu" style="cursor: pointer" name="category_id" required>
+                    <select class="edit-valu" style="cursor: pointer" name="category_id" required data-tipo="categoria">
                         <option disabled>Seleccionar</option>
                         <% categories.forEach(category=> { %>
                             <option value="<%= category.category_id %>" <%=category.category_id==collections.category_id
@@ -23,7 +23,7 @@
 
                 <div>
                     <label for="licencia">Licencia:</label>
-                    <select class="edit-valu" style="cursor: pointer" name="licence_id" required>
+                    <select class="edit-valu" style="cursor: pointer" name="licence_id" required data-tipo="licencia">
                         <option disabled>Seleccionar</option>
                         <% licences.forEach(licence=> { %>
                             <option value="<%= licence.licence_id %>" <%=licence.licence_id==collections.licence_id
@@ -38,33 +38,38 @@
             <div class="edit-tipo">
                 <label for="nombre-producto">Nombre del producto:</label>
                 <input class="edit-product" name="product_name" type="text" id="nombre-producto"
-                    value="<%= typeof collections != 'undefined' ? collections.product_name : '' %>" required />
+                    value="<%= typeof collections != 'undefined' ? collections.product_name : '' %>" required data-tipo="nombre"/>
+                    <span class="input-message-error">Este campo no es valido</span>
             </div>
 
             <div class="text-edit">
                 <textarea class="edit-text" name="product_description" rows="6" cols="80"
                     placeholder="Descripción del producto"
-                    required><%= typeof collections != 'undefined' ? collections.product_description : '' %></textarea>
-            </div>
+                    required data-tipo="descripcion"><%= typeof collections != 'undefined' ? collections.product_description : '' %></textarea>
+                    <span class="input-message-error">Este campo no es valido</span>
+                </div>
 
 
             <div class="edit-tipo">
                 <div>
                     <label for="sku">SKU:</label>
                     <input class="edit-sps" name="sku" type="text" id="sku"
-                        value="<%= typeof collections != 'undefined' ? collections.sku : '' %>" required />
+                        value="<%= typeof collections != 'undefined' ? collections.sku : '' %>" required data-tipo="sku"/>
+                        <span class="input-message-error">Este campo no es valido</span>
                 </div>
 
                 <div>
                     <label for="precio">Precio:</label>
                     <input class="edit-sps" name="price" type="text" id="precio"
-                        value="<%= typeof collections != 'undefined' ? collections.price : '' %>" required />
+                        value="<%= typeof collections != 'undefined' ? collections.price : '' %>" required data-tipo="precio"/>
+                        <span class="input-message-error">Este campo no es valido</span>
                 </div>
 
                 <div>
                     <label for="stock">Stock:</label>
                     <input class="edit-sps" name="stock" type="text" id="stock"
-                        value="<%= typeof collections != 'undefined' ? collections.stock : '' %>" required />
+                        value="<%= typeof collections != 'undefined' ? collections.stock : '' %>" required data-tipo="stock"/>
+                        <span class="input-message-error">Este campo no es valido</span>
                 </div>
             </div>
 
@@ -72,7 +77,8 @@
                 <div>
                     <label for="descuento">Descuento:</label>
                     <input class="descuento" name="discount" type="text" id="descuento"
-                        value="<%= typeof collections != 'undefined' ? collections.discount : '' %>" required />
+                        value="<%= typeof collections != 'undefined' ? collections.discount : '' %>" required data-tipo="descuento" />
+                        <span class="input-message-error">Este campo no es valido</span>
                 </div>
 
                 <label for="cuotas">Cuotas:</label>
@@ -80,6 +86,8 @@
                     <option value="numero-cuotas">3 Cuotas sin interés</option>
                     <option value="numero-cuotas">6 Cuotas sin interés</option>
                     <option value="numero-cuotas">12 Cuotas sin interés</option>
+                    <option value="dieciOchoCuotas">18 Cuotas sin interes</option>
+                    <option value="veintiCuatroCuotas">24 Cuotas sin interes</option>
                 </select>
             </div>
 
@@ -89,10 +97,10 @@
             </div> -->
 
             <label for="image_front" class="label-create">Imagen Principal:</label>
-            <input type="url" name="image_front" id="image_front" value="<%= typeof collections != 'undefined' ? collections.image_front : '' %>">
+            <input type="url" name="image_front" id="image_front" value="<%= typeof collections != 'undefined' ? collections.image_front : '' %>" required data-tipo="imagenFront">
 
             <label for="image_back" class="label-create">Imagen Secundaria:</label>
-            <input type="url" name="image_back" id="image_back" value="<%= typeof collections != 'undefined' ? collections.image_back : '' %>">
+            <input type="url" name="image_back" id="image_back" value="<%= typeof collections != 'undefined' ? collections.image_back : '' %>" required  data-tipo="imagenBack" >
             
             <div class="container-card">
                 <section class="card-edit">
