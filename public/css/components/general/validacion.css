@@ -1,0 +1,11 @@
+.input-message-error {
+    display: none;
+}
+
+.input-container--invalid .input-message-error {
+    color: red;
+    display: block;
+    margin-top: 0.5rem;
+    padding-left: 0.5rem;
+    font-size: 13px;
+}
