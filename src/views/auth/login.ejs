@@ -3,8 +3,16 @@
         <section id="section-register__person" class="container">
             <h2 class="login-title title">INGRESAR A MI CUENTA</h2>
 
+            <% if (typeof errors != 'undefined') { %>
+                <ul>
+                  <% errors.forEach(error => { %>
+                  <li>Error: <%= error.msg %></li>
+                  <% }) %>
+                </ul>
+            <% } %>
+
             <div id="container-form__register">
-                <form action="" method="post" id="formRegister" class="formRegister">
+                <form action="/auth/login" method="post" id="formRegister" class="formRegister">
                     <div class="container--labelsAndInputs">
                         <div class="container--labels">
                             <label for="email" class="label-register">Email:</label>
@@ -13,7 +21,7 @@
                         <div class="container--inputs">
                             <input name="email" id="email" type="email" placeholder="johndoe@correo.com"
                                 class="input-register" />
-                            <input name="contrasenia" id="password" type="password" placeholder="●●●●●●●●●●"
+                            <input name="password" id="password" type="password" placeholder="●●●●●●●●●●"
                                 class="input-register" />
                         </div>
                     </div>

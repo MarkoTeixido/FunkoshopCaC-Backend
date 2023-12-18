@@ -14,6 +14,9 @@ const authControllers = {
       
         if (!errors.isEmpty()) {
           return res.render("auth/login", {
+            view:{
+              title: "Login | Funkoshop"
+            },
             values: req.body,
             errors: errors.array(),
           });
@@ -28,20 +31,26 @@ const authControllers = {
       
           if (!user) {
             res.render("auth/login", {
+              view:{
+                title: "Login | Funkoshop"
+              },
               values: req.body,
-              errors: [{ msg: "El correo y/o contraseña son incorrectos (email)" }],
+              errors: [{ msg: "El correo no está registrado" }],
             });
           } else if (!(await bcryptjs.compare(req.body.password, user.password))) {
             res.render("auth/login", {
+              view:{
+                title: "Login | Funkoshop"
+              },
               values: req.body,
               errors: [
-                { msg: "El correo y/o contraseña son incorrectos (password)" },
+                { msg: "La contraseña es incorrecta" },
               ],
             });
           } else {
             req.session.userId = user.id;
       
-            res.redirect("/");
+            res.redirect("/admin/products");
           }
         } catch (error) {
           console.log(error);
@@ -54,30 +63,23 @@ const authControllers = {
       },
     }),
     registerUser: async (req, res) => {
-      console.log("estas validando datos del usuario");
       const errors = validationResult(req);
-      console.log("terminaste la validacion de datos del usuario");
 
-      
-      
-      console.log("comprobando si no hay errores");
       if (!errors.isEmpty()) {
-        return errors.array().forEach(error => {
-          console.log("Campo:", error.param);
-          console.log("Mensaje:", error.msg);
-          console.log("Valor proporcionado:", error.value);
-          console.log("-----------");
+        return res.render("auth/register", {
+          view:{
+            title: "Register | Funkoshop"
+          },
+          values: req.body,
+          errors: errors.array(),
         });
       };
-      
-      console.log("terminó comprobación de errores");
     
       try {
-        console.log("estas en authcontroller intentando crear usuario en createUser");
         const user = await userService.createUser(req.body);
     
         console.log(req.body, user);
-        res.redirect("/admin/products");
+        res.redirect("/auth/login");
       } catch (error) {
         console.log(error);
         res.send(error);

@@ -5,6 +5,13 @@
                 <h2 class="register__title title">CREA TU CUENTA</h2>
                 <p class="register__subtitle">Completa el formulario para ser parte del mundo de los Funkos</p>
             </div>
+            <% if (typeof errors != 'undefined') { %>
+                <ul>
+                  <% errors.forEach(error => { %>
+                  <li>ERROR: <%= error.msg %></li>
+                  <% }) %>
+                </ul>
+            <% } %>
             <div id="container-form__register">
                 <form action="/auth/register" method="post" id="formRegister" class="formRegister">
 
