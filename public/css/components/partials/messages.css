@@ -1,6 +1,5 @@
 .req-messages{
     margin: var(--spacing-12) 0;
-    padding: var(--spacing-12) 0;
     font-family: var(--primary-font);
     font-size: var(--font-xsmall);
     font-weight: 400;
