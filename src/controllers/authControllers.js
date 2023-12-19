@@ -10,52 +10,49 @@ const authControllers = {
         },
     }),
     loginUser: async (req, res) => {
-        const errors = validationResult(req);
-      
-        if (!errors.isEmpty()) {
-          return res.render("auth/login", {
+      const errors = validationResult(req);
+    
+      if (!errors.isEmpty()) {
+        return res.render("auth/login", {
+          values: req.body,
+          errors: errors.array(),
+        });
+      }
+    
+      try {
+        const user = await dataUser.findOne({
+          where: {
+            email: req.body.email,
+          },
+        });
+    
+        if (!user) {
+          res.render("auth/login", {
             view:{
               title: "Login | Funkoshop"
             },
             values: req.body,
-            errors: errors.array(),
+            errors: [{ msg: "El correo y/o contraseña son incorrectos (email)" }],
           });
-        }
-      
-        try {
-          const user = await dataUser.findOne({
-            where: {
-              email: req.body.email,
+        } else if (!(await bcryptjs.compare(req.body.password, user.password))) {
+          res.render("auth/login", {
+            view:{
+              title: "Login | Funkoshop"
             },
+            values: req.body,
+            errors: [
+              { msg: "El correo y/o contraseña son incorrectos (password)" },
+            ],
           });
-      
-          if (!user) {
-            res.render("auth/login", {
-              view:{
-                title: "Login | Funkoshop"
-              },
-              values: req.body,
-              errors: [{ msg: "El correo no está registrado" }],
-            });
-          } else if (!(await bcryptjs.compare(req.body.password, user.password))) {
-            res.render("auth/login", {
-              view:{
-                title: "Login | Funkoshop"
-              },
-              values: req.body,
-              errors: [
-                { msg: "La contraseña es incorrecta" },
-              ],
-            });
-          } else {
-            req.session.userId = user.id;
-      
-            res.redirect("/admin/products");
-          }
-        } catch (error) {
-          console.log(error);
-          res.send(error);
+        } else {
+          req.session.userId = user.id;
+    
+          res.redirect("/admin/products");
         }
+      } catch (error) {
+        console.log(error);
+        res.send(error);
+      }
     },
     registerView: (req, res) => res.render('auth/register', {
       view:{
@@ -85,7 +82,18 @@ const authControllers = {
         res.send(error);
       }
     },
-    logoutView: (req, res) => res.send("Route for logout view")
+    logoutView: (req, res) => {
+      req.session = null;
+      res.render("auth/login", {
+        view:{
+          title: "Login | Funkoshop"
+        },
+        values: req.body,
+        errors: [
+          { msg: "Ha cerrado la sesión." },
+        ],
+      });
+    },
 };
 
 module.exports = authControllers;

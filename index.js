@@ -11,6 +11,7 @@ const mainRoutes = require("./src/router/mainRoutes");
 const shopRoutes = require("./src/router/shopRoutes");
 const adminRoutes = require('./src/router/adminRoutes');
 const authRoutes = require("./src/router/authRoutes");
+const session = require('express-session');
 //---
 
 //Set static file folder
@@ -21,6 +22,12 @@ app.use(express.static(path.resolve(__dirname, "public")));
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "./src/views"));
 //---
+
+app.use(session({
+    secret: 'S3cr3t01',
+    resave: false,
+    saveUninitialized: false,
+}));
 
 //Set middlewares to parse data (POST)
 app.use(express.urlencoded({ extended: true }));
