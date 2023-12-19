@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const methodOverride = require('method-override');
+const session = require('express-session');
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;
 
@@ -11,7 +12,6 @@ const mainRoutes = require("./src/router/mainRoutes");
 const shopRoutes = require("./src/router/shopRoutes");
 const adminRoutes = require('./src/router/adminRoutes');
 const authRoutes = require("./src/router/authRoutes");
-const session = require('express-session');
 //---
 
 //Set static file folder
@@ -23,11 +23,13 @@ app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "./src/views"));
 //---
 
+//Set session config
 app.use(session({
     secret: 'S3cr3t01',
     resave: false,
     saveUninitialized: false,
 }));
+//---
 
 //Set middlewares to parse data (POST)
 app.use(express.urlencoded({ extended: true }));
