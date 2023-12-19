@@ -89,9 +89,7 @@ const authControllers = {
           title: "Login | Funkoshop"
         },
         values: req.body,
-        errors: [
-          { msg: "Ha cerrado la sesión." },
-        ],
+        errors: undefined,
       });
     },
 };
