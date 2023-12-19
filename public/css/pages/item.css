@@ -176,7 +176,7 @@ input[type=button]:hover, input[type=submit]:hover{
 
     .centrar {
         width: 65%;
-        margin: auto;
+        margin-left: 11rem;
         display: block;
     }
     
