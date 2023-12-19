@@ -180,6 +180,10 @@
     .fields__category-licence div {
         gap: 2rem;
     }
+
+    .create-container__title{
+        font-size: var(--font-jumbo);
+    }
 }
 
 @media screen and (max-width:500px) {
