@@ -2,7 +2,8 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const methodOverride = require('method-override');
-const session = require('express-session');
+const session = require('cookie-session');
+//const session = require('express-session');
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;
 
@@ -24,11 +25,17 @@ app.set("views", path.resolve(__dirname, "./src/views"));
 //---
 
 //Set session config
-app.use(session({
-    secret: 'S3cr3t01',
-    resave: false,
-    saveUninitialized: false,
-}));
+app.use(
+    session({
+        keys: ["S3cr3t01", "S3cr3t02"],
+    })
+);
+
+// app.use(session({
+//     secret: 'S3cr3t01',
+//     resave: false,
+//     saveUninitialized: false,
+// }));
 //---
 
 //Set middlewares to parse data (POST)

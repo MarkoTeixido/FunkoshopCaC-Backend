@@ -14,8 +14,11 @@ const authControllers = {
     
       if (!errors.isEmpty()) {
         return res.render("auth/login", {
+          view:{
+            title: "Login | Funkoshop"
+          },
           values: req.body,
-          errors: errors.array(),
+          errors: [{ msg: "Los datos no son válidos para el acceso. Revise bien el mail y la contraseña, por favor." }],
         });
       }
     

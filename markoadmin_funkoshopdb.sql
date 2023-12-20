@@ -106,7 +106,7 @@ CREATE TABLE `user` (
   `name` varchar(16) NOT NULL,
   `lastname` varchar(80) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(32) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `create_time` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
